@@ -4,6 +4,8 @@
 关于Python,Java,JavaScript,HTML和CSS,算法...
 以及自己的一些日常总结:ok_hand:
 
+![](https://github.com/wushiwe-beep/wushiwe-beep.github.io/blob/main/res/QQ%E5%9B%BE%E7%89%8720210513001504.jpg)
+
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
