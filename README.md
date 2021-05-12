@@ -1,8 +1,8 @@
 ## Welcome to My GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/wushiwe-beep/wushiwe-beep.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+我会定期的更新学习笔记以此来激励自己！！！
+关于Python,Java,JavaScript,HTML和CSS,算法...
+以及自己的一些日常总结
 
 ### Markdown
 
