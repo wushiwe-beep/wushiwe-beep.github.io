@@ -20,7 +20,7 @@
 
    **ER模型**，全称为**实体关系模型**（Entity-Relationship Model），由美籍华裔计算机科学家陈品山先生提出，是概念数据模型的高层描述方式，如下图所示。
 
-   ![](./res/er_diagram.png)
+   ![](https://github.com/wushiwe-beep/wushiwe-beep.github.io/blob/main/Python%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/res/er_diagram.png)
 
    - 实体 - 矩形框
    - 属性 - 椭圆框
@@ -29,7 +29,7 @@
 
    实际项目开发中，我们可以利用数据库建模工具（如：PowerDesigner）来绘制概念数据模型（其本质就是ER模型），然后再设置好目标数据库系统，将概念模型转换成物理模型，最终生成创建二维表的SQL（很多工具都可以根据我们设计的物理模型图以及设定的目标数据库来导出SQL或直接生成数据表）。
 
-   ![](./res/conceptual_model.png)
+   ![](https://github.com/wushiwe-beep/wushiwe-beep.github.io/blob/main/Python%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/res/conceptual_model.png)
 
 5. 关系数据库产品。
    - [Oracle](https://www.oracle.com/index.html) - 目前世界上使用最为广泛的数据库管理系统，作为一个通用的数据库系统，它具有完整的数据管理功能；作为一个关系数据库，它是一个完备关系的产品；作为分布式数据库，它实现了分布式处理的功能。在Oracle最新的12c版本中，还引入了多承租方架构，使用该架构可轻松部署和管理数据库云。
