@@ -2,9 +2,6 @@
 
 ## Welcome to My GitHub Pages
 
-我会定期的更新学习笔记以此来激励自己！！！
-关于Python,Java,JavaScript,HTML和CSS,算法...
-以及自己的一些日常总结:ok_hand:
 
 
 
