@@ -47,4 +47,4 @@ SHIFT ESC: 隐藏当前窗口，焦点到编辑窗口
 F12: 焦点从编辑窗口到上一个使用窗口
 编辑器右键，local history, show history： 显示本地修改记录
 
-![]()
+![](https://github.com/wushiwe-beep/wushiwe-beep.github.io/blob/main/res/191435131665539.png)
