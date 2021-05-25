@@ -16,31 +16,31 @@ Another advantage Python holds over other languages is its versatility. Python i
 ## What is Python used for?
 - Python's versatility enables it to be used in a wide range of applications across various industries. Let's take a look at some of the ways Python is used.
 
-- Data science: analytics and visualization
-Data science is one of the most popular uses for Python. Data scientists and analysts use programming languages like Python and R to manipulate data for reporting, predictive analysis, and more.
+## Data science: analytics and visualization
+- Data science is one of the most popular uses for Python. Data scientists and analysts use programming languages like Python and R to manipulate data for reporting, predictive analysis, and more.
 
 - Harvesting insights from data is no easy task, and data scientists don't have time to waste with compiling and complicated syntax. Python's simple syntax and extensive selection of third-party libraries make it a great choice for anyone considering a career in data science.
 
-- Machine learning
-While arguably a subfield of data science, machine learning deserves its own category because of its unique algorithms. Machine learning involves training systems to learn independently by using algorithms that constantly update themselves based on input data. These systems gradually learn to handle new situations by generating an output based on past datasets. Then, based on the outcome of this new situation, they update themselves to deal with the new variables, thus constantly evolving.
+## Machine learning
+- While arguably a subfield of data science, machine learning deserves its own category because of its unique algorithms. Machine learning involves training systems to learn independently by using algorithms that constantly update themselves based on input data. These systems gradually learn to handle new situations by generating an output based on past datasets. Then, based on the outcome of this new situation, they update themselves to deal with the new variables, thus constantly evolving.
 
-- Web development: websites and web apps
-Python is also widely used for back-end development, where it runs in the server of web applications and interacts with databases and APIs after a user requests data from the app's front-end in the browser.
+## Web development: websites and web apps
+- Python is also widely used for back-end development, where it runs in the server of web applications and interacts with databases and APIs after a user requests data from the app's front-end in the browser.
 
-Much of Python's popularity in web development stems from frameworks and libraries like Django and Flask that extend the language's utility.
+- Much of Python's popularity in web development stems from frameworks and libraries like Django and Flask that extend the language's utility.
 
-Financial analysis
-In a recent HackerRank survey, Python was the number one programming language FinTech companies looked for when hiring developers. But it's not only FinTech enterprises that use Python code. Python is used everywhere in the financial industry because of its data processing capabilities and various third-party libraries designed for financial analysis.
+## Financial analysis
+- In a recent HackerRank survey, Python was the number one programming language FinTech companies looked for when hiring developers. But it's not only FinTech enterprises that use Python code. Python is used everywhere in the financial industry because of its data processing capabilities and various third-party libraries designed for financial analysis.
 
-Desktop applications
-You can also use Python to build desktop applications. Many Linux and open-source desktop applications use Python. Plus, with GUI libraries like Tk, wxWidgets, and Qt, you can use Python to build cross-platform applications that run on Windows, Mac, or Linux.
+## Desktop applications
+- You can also use Python to build desktop applications. Many Linux and open-source desktop applications use Python. Plus, with GUI libraries like Tk, wxWidgets, and Qt, you can use Python to build cross-platform applications that run on Windows, Mac, or Linux.
 
-Business applications
-Python lies at the heart of business software like Tryton and Odoo. These tools are used for enterprise development and can perform accounting, inventory, customer relationship management, and other tasks.
+## Business applications
+- Python lies at the heart of business software like Tryton and Odoo. These tools are used for enterprise development and can perform accounting, inventory, customer relationship management, and other tasks.
 
-In short, many businesses rely on Python to do the heavy lifting. This has led to more and more startups including Python in their tech stacks for its ease of use and scalability.
+- In short, many businesses rely on Python to do the heavy lifting. This has led to more and more startups including Python in their tech stacks for its ease of use and scalability.
 
-Scripting and utility software
+## Scripting and utility software
 Python started as a language for writing utility scripts, and it's still widely used for this purpose. Many of the utilities and scripts built into Linux operating systems are written in Python, and it's also installed by default in the Mac OS. This makes Python the language of choice for automating tasks in an engineer's day-to-day work.
 
 ### Python应用领域和职业发展分析
