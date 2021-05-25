@@ -2,7 +2,9 @@
 
 ## Welcome to My GitHub Pages
 
+You've probably heard that Python is one of the most popular programming languages. Last year, Stack Overflow found that two-thirds of the developers who currently use the language love it and plan to continue doing so. But why is it so popular? What is it used for?
 
+Python is a general-purpose programming language used in just about any kind of software you can think of. You can use it to build websites, artificial intelligence, servers, business software, and more.
 
 
 ### Python应用领域和职业发展分析
