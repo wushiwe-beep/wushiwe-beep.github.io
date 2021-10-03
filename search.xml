@@ -260,7 +260,7 @@
   <entry>
     <title>计算机操作系统 - 内存管理</title>
     <url>/2021/10/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h1 id="计算机操作系统-内存管理"><a href="#计算机操作系统-内存管理" class="headerlink" title="计算机操作系统 - 内存管理"></a>计算机操作系统 - 内存管理</h1><!-- GFM-TOC -->
+    <content><![CDATA[<!-- GFM-TOC -->
 <ul>
 <li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F---%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86">计算机操作系统 - 内存管理</a><ul>
 <li><a href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98">虚拟内存</a></li>
@@ -368,7 +368,8 @@
     <title>Java基础</title>
     <url>/2021/10/04/Java%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-<h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><!-- code_chunk_output -->
+
+<!-- code_chunk_output -->
 <span id="more"></span>
 <ul>
 <li><a href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%B8%B8%E8%AF%86">基础概念与常识</a><ul>
@@ -1218,7 +1219,7 @@
   <entry>
     <title>Java容器</title>
     <url>/2021/10/04/Java%E5%AE%B9%E5%99%A8/</url>
-    <content><![CDATA[<h1 id="Java-容器"><a href="#Java-容器" class="headerlink" title="Java 容器"></a>Java 容器</h1><span id="more"></span>
+    <content><![CDATA[<span id="more"></span>
 <!-- GFM-TOC -->
 <ul>
 <li><a href="#java-%E5%AE%B9%E5%99%A8">Java 容器</a><ul>
@@ -1590,7 +1591,7 @@
   <entry>
     <title>Java并发</title>
     <url>/2021/10/04/Java%E5%B9%B6%E5%8F%91/</url>
-    <content><![CDATA[<h1 id="Java-并发"><a href="#Java-并发" class="headerlink" title="Java 并发"></a>Java 并发</h1><span id="more"></span>
+    <content><![CDATA[<span id="more"></span>
 <!-- GFM-TOC -->
 <ul>
 <li><a href="#java-%E5%B9%B6%E5%8F%91">Java 并发</a><ul>
@@ -2213,7 +2214,7 @@
   <entry>
     <title>Java虚拟机</title>
     <url>/2021/10/04/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
-    <content><![CDATA[<h1 id="Java-虚拟机"><a href="#Java-虚拟机" class="headerlink" title="Java 虚拟机"></a>Java 虚拟机</h1><span id="more"></span>
+    <content><![CDATA[<span id="more"></span>
 <!-- GFM-TOC -->
 <ul>
 <li><a href="#java-%E8%99%9A%E6%8B%9F%E6%9C%BA">Java 虚拟机</a><ul>
