@@ -368,9 +368,8 @@
     <title>Java基础</title>
     <url>/2021/10/04/Java%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-
-<!-- code_chunk_output -->
-
+<h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><!-- code_chunk_output -->
+<span id="more"></span>
 <ul>
 <li><a href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%B8%B8%E8%AF%86">基础概念与常识</a><ul>
 <li><a href="#java-%E8%AF%AD%E8%A8%80%E6%9C%89%E5%93%AA%E4%BA%9B%E7%89%B9%E7%82%B9">Java 语言有哪些特点?</a></li>
@@ -1219,7 +1218,8 @@
   <entry>
     <title>Java容器</title>
     <url>/2021/10/04/Java%E5%AE%B9%E5%99%A8/</url>
-    <content><![CDATA[<h1 id="Java-容器"><a href="#Java-容器" class="headerlink" title="Java 容器"></a>Java 容器</h1><!-- GFM-TOC -->
+    <content><![CDATA[<h1 id="Java-容器"><a href="#Java-容器" class="headerlink" title="Java 容器"></a>Java 容器</h1><span id="more"></span>
+<!-- GFM-TOC -->
 <ul>
 <li><a href="#java-%E5%AE%B9%E5%99%A8">Java 容器</a><ul>
 <li><a href="#%E4%B8%80%E6%A6%82%E8%A7%88">一、概览</a><ul>
@@ -1590,7 +1590,8 @@
   <entry>
     <title>Java并发</title>
     <url>/2021/10/04/Java%E5%B9%B6%E5%8F%91/</url>
-    <content><![CDATA[<h1 id="Java-并发"><a href="#Java-并发" class="headerlink" title="Java 并发"></a>Java 并发</h1><!-- GFM-TOC -->
+    <content><![CDATA[<h1 id="Java-并发"><a href="#Java-并发" class="headerlink" title="Java 并发"></a>Java 并发</h1><span id="more"></span>
+<!-- GFM-TOC -->
 <ul>
 <li><a href="#java-%E5%B9%B6%E5%8F%91">Java 并发</a><ul>
 <li><a href="#%E4%B8%80%E4%BD%BF%E7%94%A8%E7%BA%BF%E7%A8%8B">一、使用线程</a><ul>
@@ -2212,7 +2213,8 @@
   <entry>
     <title>Java虚拟机</title>
     <url>/2021/10/04/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
-    <content><![CDATA[<h1 id="Java-虚拟机"><a href="#Java-虚拟机" class="headerlink" title="Java 虚拟机"></a>Java 虚拟机</h1><!-- GFM-TOC -->
+    <content><![CDATA[<h1 id="Java-虚拟机"><a href="#Java-虚拟机" class="headerlink" title="Java 虚拟机"></a>Java 虚拟机</h1><span id="more"></span>
+<!-- GFM-TOC -->
 <ul>
 <li><a href="#java-%E8%99%9A%E6%8B%9F%E6%9C%BA">Java 虚拟机</a><ul>
 <li><a href="#%E4%B8%80%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F">一、运行时数据区域</a><ul>
