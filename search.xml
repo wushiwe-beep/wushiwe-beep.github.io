@@ -11,7 +11,7 @@
     <title>Java IO</title>
     <url>/2021/10/02/JavaIO/</url>
     <content><![CDATA[<!-- GFM-TOC -->
-
+<span id="more"></span>
 <ul>
 <li><a href="#java-io">Java IO</a><ul>
 <li><a href="#%E4%B8%80%E6%A6%82%E8%A7%88">一、概览</a></li>
@@ -56,7 +56,7 @@
 </ul>
 </li>
 </ul>
-<span id="more"></span>
+<!-- more -->
 <h2 id="一、概览"><a href="#一、概览" class="headerlink" title="一、概览"></a>一、概览</h2><p>Java 的 I/O 大概可以分成以下几类：</p>
 <ul>
 <li>磁盘操作：File</li>
