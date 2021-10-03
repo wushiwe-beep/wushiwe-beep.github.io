@@ -11,7 +11,7 @@
   <meta name="description" content="Java IO 一、概览 二、磁盘操作 三、字节操作 实现文件复制 装饰者模式   四、字符操作 编码与解码 String 的编码方式 Reader 与 Writer 实现逐行输出文本文件的内容   五、对象操作 序列化 Serializable transient   六、网络操作 InetAddress URL Sockets Datagram   七、NIO 流与块 通道与缓冲区 缓冲区">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java IO">
-<meta property="og:url" content="http://example.com/2021/08/20/JavaIO/index.html">
+<meta property="og:url" content="http://example.com/2021/10/02/JavaIO/index.html">
 <meta property="og:site_name" content="Alex&#39;s Blog">
 <meta property="og:description" content="Java IO 一、概览 二、磁盘操作 三、字节操作 实现文件复制 装饰者模式   四、字符操作 编码与解码 String 的编码方式 Reader 与 Writer 实现逐行输出文本文件的内容   五、对象操作 序列化 Serializable transient   六、网络操作 InetAddress URL Sockets Datagram   七、NIO 流与块 通道与缓冲区 缓冲区">
 <meta property="og:locale" content="en_US">
@@ -23,8 +23,8 @@
 <meta property="og:image" content="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/b5bdcbe2-b958-4aef-9151-6ad963cb28b4.png">
 <meta property="og:image" content="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/67bf5487-c45d-49b6-b9c0-a058d8c68902.png">
 <meta property="og:image" content="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/093f9e57-429c-413a-83ee-c689ba596cef.png">
-<meta property="article:published_time" content="2021-08-20T07:40:53.000Z">
-<meta property="article:modified_time" content="2021-10-03T17:52:36.135Z">
+<meta property="article:published_time" content="2021-10-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-10-03T19:12:15.619Z">
 <meta property="article:author" content="吴世炜">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -170,8 +170,8 @@
   
 
         
-        <a href="/2021/08/20/JavaIO/" class="archive-article-date">
-  	<time datetime="2021-08-20T07:40:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-20</time>
+        <a href="/2021/10/02/JavaIO/" class="archive-article-date">
+  	<time datetime="2021-10-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-02</time>
 <span id="busuanzi_container_page_pv">  本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span>
 
 </a>
@@ -522,7 +522,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/08/20/JavaIO/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/10/02/JavaIO/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -536,15 +536,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/20/2021-8-20%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/10/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          2021.8.20我的第一个博客文章
+          计算机操作系统 - 内存管理
         
       </div>
     </a>
   
+  
+    <a href="/2021/08/20/2021-8-20%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2021.8.20我的第一个博客文章</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -680,6 +685,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -751,6 +760,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           
             <li class="search-li">
               <a href="https://www.infoworld.com/category/java/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Java-InfoWorld</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://github.com/Snailclimb/JavaGuide" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>JavaGuide</a>
             </li>
           
         </ul>
