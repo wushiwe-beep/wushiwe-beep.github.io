@@ -8,12 +8,10 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>计算机操作系统 - 内存管理 | Alex&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="计算机操作系统 - 内存管理 虚拟内存 分页系统地址映射 页面置换算法 1. 最佳 2. 最近最久未使用 3. 最近未使用 4. 先进先出 5. 第二次机会算法 6. 时钟   分段 段页式 分页与分段的比较">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="计算机操作系统 - 内存管理">
 <meta property="og:url" content="http://example.com/2021/10/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="Alex&#39;s Blog">
-<meta property="og:description" content="计算机操作系统 - 内存管理 虚拟内存 分页系统地址映射 页面置换算法 1. 最佳 2. 最近最久未使用 3. 最近未使用 4. 先进先出 5. 第二次机会算法 6. 时钟   分段 段页式 分页与分段的比较">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/7b281b1e-0595-402b-ae35-8c91084c33c1.png">
 <meta property="og:image" content="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/cf4386a1-58c9-4eca-a17f-e12b1e9770eb.png">
@@ -23,7 +21,7 @@
 <meta property="og:image" content="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/22de0538-7c6e-4365-bd3b-8ce3c5900216.png">
 <meta property="og:image" content="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/e0900bb2-220a-43b7-9aa9-1d5cd55ff56e.png">
 <meta property="article:published_time" content="2021-10-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-10-03T19:38:53.331Z">
+<meta property="article:modified_time" content="2021-10-04T08:45:15.380Z">
 <meta property="article:author" content="吴世炜">
 <meta property="article:tag" content="Operating system">
 <meta name="twitter:card" content="summary">
@@ -87,7 +85,7 @@
 		</nav>
 		<nav>
 			<ul style="font-size:12px; font-style:oblique; font-weight:100">
-				总文章数：7
+				总文章数：9
 			</ul>
 		</nav>
 		<br/>
@@ -187,6 +185,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <!-- GFM-TOC -->
+<span id="more"></span>
 <ul>
 <li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F---%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86">计算机操作系统 - 内存管理</a><ul>
 <li><a href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98">虚拟内存</a></li>
@@ -206,7 +205,6 @@
 </ul>
 </li>
 </ul>
-<span id="more"></span>
 <h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><p>虚拟内存的目的是为了让物理内存扩充成更大的逻辑内存，从而让程序获得更多的可用内存。</p>
 <p>为了更好的管理内存，操作系统将内存抽象成地址空间。每个程序拥有自己的地址空间，这个地址空间被分割成多个块，每一块称为一页。这些页被映射到物理内存，但不需要映射到连续的物理内存，也不需要所有页都必须在物理内存中。当程序引用到不在物理内存中的页时，由硬件执行必要的映射，将缺失的部分装入物理内存并重新执行失败的指令。</p>
 <p>从上面的描述中可以看出，虚拟内存允许程序不用将地址空间中的每一页都映射到物理内存，也就是说一个程序不需要全部调入内存就可以运行，这使得有限的内存运行大程序成为可能。例如有一台计算机可以产生 16 位地址，那么一个程序的地址空间范围是 0~64K。该计算机只有 32KB 的物理内存，虚拟内存技术允许该计算机运行一个 64K 大小的程序。</p>
@@ -542,6 +540,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Operating system</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>
