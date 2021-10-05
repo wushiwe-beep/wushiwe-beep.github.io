@@ -8,12 +8,10 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Python进阶 | Alex&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="重要知识点 生成式（推导式）的用法 123456789101112prices &#x3D; &amp;#123;    &amp;#x27;AAPL&amp;#x27;: 191.88,    &amp;#x27;GOOG&amp;#x27;: 1186.96,    &amp;#x27;IBM&amp;#x27;: 149.24,    &amp;#x27;ORCL&amp;#x27;: 48.44,    &amp;#x27;ACN&amp;#x27;: 166.89,    &amp;#x">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="Python进阶">
 <meta property="og:url" content="http://example.com/2021/10/06/Python%E8%BF%9B%E9%98%B6/index.html">
 <meta property="og:site_name" content="Alex&#39;s Blog">
-<meta property="og:description" content="重要知识点 生成式（推导式）的用法 123456789101112prices &#x3D; &amp;#123;    &amp;#x27;AAPL&amp;#x27;: 191.88,    &amp;#x27;GOOG&amp;#x27;: 1186.96,    &amp;#x27;IBM&amp;#x27;: 149.24,    &amp;#x27;ORCL&amp;#x27;: 48.44,    &amp;#x27;ACN&amp;#x27;: 166.89,    &amp;#x">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://latex.codecogs.com/gif.latex?O(c)">
 <meta property="og:image" content="http://latex.codecogs.com/gif.latex?O(log_2n)">
@@ -24,7 +22,7 @@
 <meta property="og:image" content="http://latex.codecogs.com/gif.latex?O(2^n)">
 <meta property="og:image" content="http://latex.codecogs.com/gif.latex?O(n!)">
 <meta property="article:published_time" content="2021-10-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-10-05T17:35:08.952Z">
+<meta property="article:modified_time" content="2021-10-05T17:39:41.381Z">
 <meta property="article:author" content="吴世炜">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -206,8 +204,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <span id="more"></span>
+        <!-- GFM-TOC -->
+<span id="more"></span>
 
+
+<!-- GFM-TOC -->
 <h3 id="重要知识点"><a href="#重要知识点" class="headerlink" title="重要知识点"></a>重要知识点</h3><ul>
 <li><p>生成式（推导式）的用法</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">prices = &#123;</span><br><span class="line">    <span class="string">&#x27;AAPL&#x27;</span>: <span class="number">191.88</span>,</span><br><span class="line">    <span class="string">&#x27;GOOG&#x27;</span>: <span class="number">1186.96</span>,</span><br><span class="line">    <span class="string">&#x27;IBM&#x27;</span>: <span class="number">149.24</span>,</span><br><span class="line">    <span class="string">&#x27;ORCL&#x27;</span>: <span class="number">48.44</span>,</span><br><span class="line">    <span class="string">&#x27;ACN&#x27;</span>: <span class="number">166.89</span>,</span><br><span class="line">    <span class="string">&#x27;FB&#x27;</span>: <span class="number">208.09</span>,</span><br><span class="line">    <span class="string">&#x27;SYMC&#x27;</span>: <span class="number">21.29</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 用股票价格大于100元的股票构造一个新的字典</span></span><br><span class="line">prices2 = &#123;key: value <span class="keyword">for</span> key, value <span class="keyword">in</span> prices.items() <span class="keyword">if</span> value &gt; <span class="number">100</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(prices2)</span><br></pre></td></tr></table></figure>
