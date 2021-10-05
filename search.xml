@@ -2210,6 +2210,9 @@
 <li><a href="http://www.oracle.com/technetwork/java/javase/tech/biasedlocking-oopsla2006-preso-150106.pdf">Eliminating SynchronizationRelated Atomic Operations with Biased Locking and Bulk Rebiasing</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
       <tags>
         <tag>Java</tag>
       </tags>
