@@ -253,6 +253,10 @@
 <li><a href="http://labojava.blogspot.com/2012/12/socket-multicast.html">Socket Multicast</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>coding</category>
+        <category>创建目录</category>
+      </categories>
       <tags>
         <tag>Java</tag>
       </tags>
@@ -1213,6 +1217,10 @@
 <li><a href="https://stackoverflow.com/questions/22358071/differences-between-oracle-jdk-and-openjdk">https://stackoverflow.com/questions/22358071/differences-between-oracle-jdk-and-openjdk</a> 基础概念与常识</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>coding</category>
+        <category>创建目录</category>
+      </categories>
       <tags>
         <tag>Java</tag>
       </tags>
@@ -1586,6 +1594,10 @@
 <li><a href="http://javaconceptoftheday.com/java-collection-framework-linkedlist-class/">Java Collection Framework – The LinkedList Class</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>coding</category>
+        <category>创建目录</category>
+      </categories>
       <tags>
         <tag>Java</tag>
       </tags>
@@ -2605,6 +2617,10 @@
 <li><a href="https://alvinalexander.com/java/jwarehouse/apache-tomcat-6.0.16/java/org/apache/el/util/ConcurrentCache.java.shtml">Tomcat example source code file (ConcurrentCache.java)</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>coding</category>
+        <category>创建目录</category>
+      </categories>
       <tags>
         <tag>Java</tag>
       </tags>
@@ -2861,6 +2877,10 @@
 <li><a href="https://zh.wikipedia.org/wiki/B%2B%E6%A0%91">B + 树</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>创建目录</category>
+      </categories>
       <tags>
         <tag>Mysql</tag>
       </tags>
@@ -3491,6 +3511,10 @@
 <li>BenForta. SQL 必知必会 [M]. 人民邮电出版社, 2013.</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>创建目录</category>
+      </categories>
       <tags>
         <tag>Mysql</tag>
       </tags>
@@ -3982,6 +4006,10 @@
 <li><a href="https://tech.meituan.com/2014/08/20/innodb-lock.html">Innodb 中的事务隔离级别和锁的关系</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>创建目录</category>
+      </categories>
       <tags>
         <tag>Mysql</tag>
       </tags>
@@ -4415,6 +4443,10 @@
 
 <h3 id="SQL-Schema-14"><a href="#SQL-Schema-14" class="headerlink" title="SQL Schema"></a>SQL Schema</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span></span><br><span class="line">IF</span><br><span class="line">    <span class="keyword">EXISTS</span> seat;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> seat ( id <span class="type">INT</span>, student <span class="type">VARCHAR</span> ( <span class="number">255</span> ) );</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> seat ( id, student )</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">    ( <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;Abbot&#x27;</span> ),</span><br><span class="line">    ( <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;Doris&#x27;</span> ),</span><br><span class="line">    ( <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;Emerson&#x27;</span> ),</span><br><span class="line">    ( <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;Green&#x27;</span> ),</span><br><span class="line">    ( <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;Jeames&#x27;</span> );</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>创建目录</category>
+      </categories>
       <tags>
         <tag>Mysql</tag>
       </tags>
