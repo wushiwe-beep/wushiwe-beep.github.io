@@ -3,8 +3,7 @@
   <entry>
     <title>2021.8.20我的第一个博客文章</title>
     <url>/2021/08/20/2021-8-20%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<span id="more"></span>
-<p>Alex<br>Student<br>Coder</p>
+    <content><![CDATA[<p>Alex<br>Student<br>Coder</p>
 ]]></content>
   </entry>
   <entry>
@@ -2610,7 +2609,6 @@
     <title>初识JavaScript</title>
     <url>/2021/10/04/01%20%E5%88%9D%E8%AF%86JavaScript/</url>
     <content><![CDATA[<span id="more"></span>
-
 <h2 id="JavaScript简介（以下简称JS）"><a href="#JavaScript简介（以下简称JS）" class="headerlink" title="JavaScript简介（以下简称JS）"></a>JavaScript简介（以下简称JS）</h2><p>JavaScript诞生于<strong>1995年</strong>，它的出现主要是用于处理网页中的<code>前端验证</code>。</p>
 <blockquote>
 <p>所谓的前端验证，就是指检查用户输入的内容是否符合一定的规则。<br>比如：用户名的长度，密码的长度，邮箱的格式等。</p>
@@ -2781,7 +2779,6 @@
     <title>函数和事件</title>
     <url>/2021/10/04/%E5%87%BD%E6%95%B0%E5%92%8C%E4%BA%8B%E4%BB%B6/</url>
     <content><![CDATA[<span id="more"></span>
-
 <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><blockquote>
 <p>函数是由一连串的子程序（语句的集合）所组成的，可以被外部程序调用。<br>向函数传递参数之后，函数可以返回一定的值。</p>
 <p>通常情况下，JavaScript代码是自上而下执行的，不过函数体内部的代码则不是这样。<br>如果只是对函数进行了声明，其中的代码并不会执行。只有在调用函数时才会执行<br>函数体内部的代码。</p>
