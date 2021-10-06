@@ -4795,4 +4795,148 @@
         <tag>Python</tag>
       </tags>
   </entry>
+  <entry>
+    <title>初识JavaScript</title>
+    <url>/2021/10/07/%E5%88%9D%E8%AF%86JavaScript/</url>
+    <content><![CDATA[<!-- GFM-TOC -->
+<span id="more"></span>
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><blockquote>
+<p>函数是由一连串的子程序（语句的集合）所组成的，可以被外部程序调用。<br>向函数传递参数之后，函数可以返回一定的值。</p>
+<p>通常情况下，JavaScript代码是自上而下执行的，不过函数体内部的代码则不是这样。<br>如果只是对函数进行了声明，其中的代码并不会执行。只有在调用函数时才会执行<br>函数体内部的代码。</p>
+<p><code>函数需要先定义，再调用</code></p>
+</blockquote>
+<p><strong>定义函数的语法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>  函数名(<span class="params">参数名<span class="number">1</span>,参数名<span class="number">2</span>,参数名<span class="number">3.</span>..</span>)</span>&#123;</span><br><span class="line">	要执行的代码</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//有return 值，就代表该方法有返回值</span></span><br><span class="line">	<span class="keyword">return</span> 值;</span><br><span class="line">	<span class="comment">//如果没有return 值，就代表该方法没有返回值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>调用函数的语法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">函数名()</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">	<span class="comment">//定义一个没有返回值的函数</span></span></span><br><span class="line"><span class="javascript">	<span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">	</span></span><br><span class="line"><span class="javascript">	&#125;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//调用test1函数</span></span></span><br><span class="line"><span class="javascript">    test1();</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">	</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">	<span class="comment">//定义一个有返回值的函数</span></span></span><br><span class="line"><span class="javascript">	<span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">		<span class="keyword">return</span> <span class="number">100</span>;</span></span><br><span class="line"><span class="javascript">	&#125;</span></span><br><span class="line"><span class="javascript">	</span></span><br><span class="line"><span class="javascript">    <span class="comment">//调用test2函数</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> num = test2();</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="JS中的函数也是一个对象"><a href="#JS中的函数也是一个对象" class="headerlink" title="JS中的函数也是一个对象"></a>JS中的函数也是一个对象</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">因为JS中的函数也是一个对象，因此我们在定义函数时也可以这样写：</span><br><span class="line"><span class="comment">///////////////////////////////</span></span><br><span class="line"><span class="comment">//定义函数，函数名为test</span></span><br><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用函数test</span></span><br><span class="line">test();</span><br><span class="line"><span class="comment">///////////////////////////////</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">///////////////////////////////</span></span><br><span class="line"><span class="comment">//定义函数，函数名为sum</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b</span><br><span class="line">	</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//调用函数sum</span></span><br><span class="line"><span class="keyword">var</span> result = sum(<span class="number">123</span>,<span class="number">456</span>);</span><br><span class="line"><span class="comment">///////////////////////////////</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="函数也可以作为参数"><a href="#函数也可以作为参数" class="headerlink" title="函数也可以作为参数"></a>函数也可以作为参数</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//定义一个函数test</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">stu</span>)</span>&#123;</span><br><span class="line">	stu();<span class="comment">//调用传递过来的function对象并执行函数</span></span><br><span class="line">&#125;</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line"><span class="comment">//调用test函数，传递的参数是一个function对象</span></span><br><span class="line">test(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="string">&quot;测试&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><blockquote>
+<p>关于事件实际上我们已经初步接触过了，指的就是用户与浏览器交互的一瞬间。<br>我们通过为指定事件绑定回调函数的形式来处理事件，当指定事件触发以后我们的回调函数就会被调用，这样我们的页面就可以完成和用户的交互了。</p>
+</blockquote>
+<p><strong>我们可以通过两种方式为一个元素绑定事件处理程序：</strong></p>
+<ul>
+<li><code>通过HTML元素指定事件属性来绑定</code></li>
+<li><code>通过DOM对象指定的属性来绑定</code></li>
+</ul>
+<h4 id="通过HTML元素指定事件属性来绑定"><a href="#通过HTML元素指定事件属性来绑定" class="headerlink" title="通过HTML元素指定事件属性来绑定"></a>通过HTML元素指定事件属性来绑定</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;alert(&#x27;hello&#x27;);alert(&#x27;world&#x27;)&quot;</span>&gt;</span>我是一个按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 绑定了一个onclick事件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">onclick</span>=<span class="string">&quot;alert(&#x27;hello&#x27;);&quot;</span>&gt;</span>我是一个DIV层<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 绑定了一个onmouseover事件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">onmouseover</span>=<span class="string">&quot;alert(&#x27;hello&#x27;);&quot;</span>&gt;</span>我是一个DIV层<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="通过DOM对象指定的属性来绑定"><a href="#通过DOM对象指定的属性来绑定" class="headerlink" title="通过DOM对象指定的属性来绑定"></a>通过DOM对象指定的属性来绑定</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;ttt&quot;</span>&gt;</span>我是一个DIV层<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;ttt&#x27;</span>);</span><br><span class="line"><span class="comment">//绑定了一个onclick事件</span></span><br><span class="line">obj.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="string">&quot;触发了点击事件&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//绑定了一个onmouseover事件</span></span><br><span class="line">obj.onmouseover = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="string">&quot;触发了鼠标移入事件&quot;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="取消超链接"><a href="#取消超链接" class="headerlink" title="取消超链接"></a>取消超链接</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 取消超链接 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;javascript:&#x27;</span>&gt;</span>[登录]<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 取消超链接，改为执行JS --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;javascript:要执行的js代码&#x27;</span>&gt;</span>[登录]<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="常见的DOM事件"><a href="#常见的DOM事件" class="headerlink" title="常见的DOM事件"></a>常见的DOM事件</h4><ul>
+<li><p>鼠标相关的事件</p>
+<ul>
+<li>onclick        监听“单击事件”</li>
+<li>onmouseover    监听“当鼠标移上去时..”</li>
+<li>onmouseout     监听“当鼠标移出去时..”</li>
+<li>onmousemove    监听“当鼠标在DOM元素区域内移动时..”</li>
+</ul>
+</li>
+<li><p>键盘相关的事件</p>
+<ul>
+<li>onfocus            获取焦点事件<br> onblur            失去焦点事件（通常表单验证，会在失去焦点事件中进行验证）<br>  onchange            内容改变事件（该事件一定要在失去焦点之后才会触发）<br>  oninput            键盘输入事件（实时触发）</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>表单相关的事件<ul>
+<li>onsubmit        表单提交事件    </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>html文档加载完毕事件（当body中的内容全部加载完毕，触发该事件）<ul>
+<li>onload</li>
+</ul>
+</li>
+</ul>
+<h4 id="设置事件监听器"><a href="#设置事件监听器" class="headerlink" title="设置事件监听器"></a>设置事件监听器</h4><p>前边我们说到了绑定事件有两种方式：</p>
+<blockquote>
+<p>通过HTML元素指定事件属性来绑定<br>通过DOM对象指定的属性来绑定</p>
+</blockquote>
+<p>其实我们还有一种方式可以绑定事件：<code>addEventListener()</code><br>这个方法需要两个参数：一个是事件字符串，一个是响应函数</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;ttt&#x27;</span>);</span><br><span class="line"><span class="comment">//设置事件监听器</span></span><br><span class="line"><span class="comment">//这里是给obj对象增加了一个click的事件监听</span></span><br><span class="line">obj.addEventListener(<span class="string">&#x27;click&#x27;</span> , <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="事件处理中的this"><a href="#事件处理中的this" class="headerlink" title="事件处理中的this"></a>事件处理中的this</h4><blockquote>
+<p>在事件处理中this所引用的对象即是设定了该事件处理程序的元素<br>也就是<code>事件是给哪个对象绑定的，this就是哪个对象</code>。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;test1&quot;</span>&gt;</span>测试2<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;test2&quot;</span>&gt;</span>测试2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = <span class="built_in">document</span>.getElementById(<span class="string">&quot;test1&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="built_in">document</span>.getElementById(<span class="string">&quot;test2&quot;</span>);</span><br><span class="line">			</span><br><span class="line">obj1.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//打印出来就是当前触发该事件的DOM对象</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">obj2.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//打印出来就是当前触发该事件的DOM对象</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line">obj1.addEventListener(<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//这里的this同上</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">&#125;)</span><br><span class="line">obj2.addEventListener(<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//这里的this同上</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h4><p>在DOM对象上的某个事件被触发时，会产生一个<code>事件对象Event</code>，<code>这个对象中包含着所有事件有关的信息</code>。包括导致事件的元素、事件的类型以及其他与特定事件相关的信息。 </p>
+<blockquote>
+<p>例如，鼠标操作导致的事件对象中，会包含鼠标位置的信息，而键盘操作导致的事件对象中，会包含与按下的键有关的信息。</p>
+</blockquote>
+<ul>
+<li>当事件触发时，会将一个event对象传入到事件的处理函数的参数当中</li>
+<li>因此，我们可以在事件的处理函数的参数中获取到该even对象信息</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;test1&quot;</span>&gt;</span>测试2<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;test2&quot;</span>&gt;</span>测试2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = <span class="built_in">document</span>.getElementById(<span class="string">&quot;test1&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="built_in">document</span>.getElementById(<span class="string">&quot;test2&quot;</span>);</span><br><span class="line">			</span><br><span class="line">obj1.onclick=<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//我们可以在事件的处理函数的参数中获取到该even对象信息</span></span><br><span class="line">	<span class="built_in">console</span>.log(event);</span><br><span class="line">&#125;</span><br><span class="line">obj2.onclick=<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//我们可以在事件的处理函数的参数中获取到该even对象信息</span></span><br><span class="line">	<span class="built_in">console</span>.log(event);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>Event对象的通用属性/方法</strong></p>
+<p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210322-1616428605067" alt="图片描述"></p>
+<h4 id="事件的传播"><a href="#事件的传播" class="headerlink" title="事件的传播"></a>事件的传播</h4><p>在网页中标签与标签之间是有嵌套关系的，比如这样一个页面：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;foo&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;bar&quot;</span>&gt;</span>sample<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果这时用户点击了sample按钮，则会以该按钮作为事件目标触发一次点击事件。<br>这时，事件的处理将会分为<code>捕获阶段、目标阶段、事件冒泡</code>这三个阶段</p>
+</blockquote>
+<h4 id="事件的传播流程"><a href="#事件的传播流程" class="headerlink" title="事件的传播流程"></a>事件的传播流程</h4><p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210323-1616500571218" alt="图片描述"></p>
+<ul>
+<li><p>捕获阶段</p>
+<blockquote>
+<p>这一阶段会从window对象开始向下一直遍历到目标对象，如果发现有对象绑定了响应事件则做相应的处理。</p>
+</blockquote>
+</li>
+<li><p>目标阶段</p>
+<blockquote>
+<p>这一阶段已经遍历结束，则会执行目标对象上绑定的响应函数。</p>
+</blockquote>
+</li>
+<li><p>事件冒泡阶段</p>
+<blockquote>
+<p>这一阶段，事件的传播方式和捕获阶段正好相反，会从事件目标一直向上遍历，直至window对象结束，这时对象上绑定的响应函数也会执行。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="取消事件的传播"><a href="#取消事件的传播" class="headerlink" title="取消事件的传播"></a>取消事件的传播</h4><p>我们可以使用event对象的两个方法完成：</p>
+<ul>
+<li>stopPropagation()</li>
+<li>stopImmediatePropagation()</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;foo&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;bar&quot;</span>&gt;</span>sample<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">&quot;bar&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">&quot;foo&quot;</span>);</span><br><span class="line">			</span><br><span class="line">btn.onclick=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">	alert(<span class="string">&quot;进入button点击&quot;</span>);</span><br><span class="line">	<span class="comment">//取消事件传播</span></span><br><span class="line">	<span class="comment">//如果取消了事件传播，就不会触发div的点击事件</span></span><br><span class="line">	e.stopPropagation();</span><br><span class="line">	<span class="comment">//e.stopImmediatePropagation();</span></span><br><span class="line">&#125;</span><br><span class="line">			</span><br><span class="line">div.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="string">&quot;进入div点击&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="取消默认行为"><a href="#取消默认行为" class="headerlink" title="取消默认行为"></a>取消默认行为</h4><p>event对象的<code>preventDefault()</code>函数，可以阻止元素发生默认的行为。</p>
+<p>例如：</p>
+<ul>
+<li>当点击提交按钮时阻止对表单的提交</li>
+<li>阻止超链接的URL跳转</li>
+<li>阻止单选框和复选框的选中</li>
+<li>……</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.baidu.com&quot;</span> <span class="attr">id</span>=<span class="string">&quot;goBaidu&quot;</span>&gt;</span>[百度]<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">id</span>=<span class="string">&quot;testCK&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> baidu = <span class="built_in">document</span>.getElementById(<span class="string">&quot;goBaidu&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> testCK = <span class="built_in">document</span>.getElementById(<span class="string">&quot;testCK&quot;</span>);</span><br><span class="line"></span><br><span class="line">baidu.onclick=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//阻止默认行为</span></span><br><span class="line">	e.preventDefault();</span><br><span class="line">&#125;</span><br><span class="line">			</span><br><span class="line">testCK.onclick=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//阻止默认行为</span></span><br><span class="line">	e.preventDefault();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
 </search>
