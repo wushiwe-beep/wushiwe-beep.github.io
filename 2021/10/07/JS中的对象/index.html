@@ -6,22 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>初识JavaScript | Alex&#39;s Blog</title>
+  <title>JS中的对象 | Alex&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="初识JavaScript">
-<meta property="og:url" content="http://example.com/2021/10/07/%E5%88%9D%E8%AF%86JavaScript/index.html">
+<meta property="og:title" content="JS中的对象">
+<meta property="og:url" content="http://example.com/2021/10/07/JS%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="Alex&#39;s Blog">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://doc.shiyanlou.com/courses/uid1321907-20210316-1615825597775">
-<meta property="og:image" content="https://doc.shiyanlou.com/courses/uid1321907-20210316-1615825828572">
-<meta property="og:image" content="https://doc.shiyanlou.com/courses/uid1321907-20210316-1615826004324">
+<meta property="og:image" content="https://doc.shiyanlou.com/courses/uid1321907-20210327-1616835132698">
+<meta property="og:image" content="https://doc.shiyanlou.com/courses/uid1321907-20210328-1616943418594">
 <meta property="article:published_time" content="2021-10-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-10-06T16:44:41.749Z">
+<meta property="article:modified_time" content="2021-10-06T17:02:53.530Z">
 <meta property="article:author" content="吴世炜">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://doc.shiyanlou.com/courses/uid1321907-20210316-1615825597775">
+<meta name="twitter:image" content="https://doc.shiyanlou.com/courses/uid1321907-20210327-1616835132698">
   
     <link rel="alternative" href="/atom.xml" title="Alex&#39;s Blog" type="application/atom+xml">
   
@@ -169,19 +168,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-初识JavaScript" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JS中的对象" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      初识JavaScript
+      JS中的对象
     </h1>
   
 
         
-        <a href="/2021/10/07/%E5%88%9D%E8%AF%86JavaScript/" class="archive-article-date">
+        <a href="/2021/10/07/JS%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/" class="archive-article-date">
   	<time datetime="2021-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-07</time>
 
 
@@ -203,74 +202,7 @@
 <span id="more"></span>
 
 <!-- GFM-TOC -->
-<h2 id="JavaScript简介（以下简称JS）"><a href="#JavaScript简介（以下简称JS）" class="headerlink" title="JavaScript简介（以下简称JS）"></a>JavaScript简介（以下简称JS）</h2><p>JavaScript诞生于<strong>1995年</strong>，它的出现主要是用于处理网页中的<code>前端验证</code>。</p>
-<blockquote>
-<p>所谓的前端验证，就是指检查用户输入的内容是否符合一定的规则。<br>比如：用户名的长度，密码的长度，邮箱的格式等。</p>
-</blockquote>
-<h4 id="简史"><a href="#简史" class="headerlink" title="简史"></a>简史</h4><ul>
-<li>JavaScript是由网景公司发明，起初命名为LiveScript，<code>后来由于Sun公司的介入更名为JavaScript</code>。 </li>
-<li>1996年微软公司在其最新的IE3浏览器中引入了自己对JavaScript的实现JScript。于是在市面上存在两个版本的JavaScript，一个网景公司的JavaScript和微软的JScript。</li>
-<li>为了确保不同的浏览器上运行的JavaScript标准一致，所以几个公司共同定制了JS的标准名命名为<code>ECMAScript</code>。</li>
-</ul>
-<p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210316-1615825597775" alt="图片描述"></p>
-<h4 id="ECMAScript"><a href="#ECMAScript" class="headerlink" title="ECMAScript"></a>ECMAScript</h4><blockquote>
-<p>ECMAScript是一个标准，而这个标准需要由各个浏览器厂商去实现。<br>因此，<code>不同的浏览器厂商对该标准会有不同的实现</code>。</p>
-</blockquote>
-<p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210316-1615825828572" alt="图片描述"></p>
-<h4 id="JavaScript的语法组成"><a href="#JavaScript的语法组成" class="headerlink" title="JavaScript的语法组成"></a>JavaScript的语法组成</h4><blockquote>
-<p>一个完整的JavaScript实现应该由以下三个部分构成</p>
-</blockquote>
-<ul>
-<li>ECMAScript（简称ES）</li>
-<li>BOM</li>
-<li>DOM</li>
-</ul>
-<p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210316-1615826004324" alt="图片描述"></p>
-<h2 id="JS语言的特点"><a href="#JS语言的特点" class="headerlink" title="JS语言的特点"></a>JS语言的特点</h2><ul>
-<li><strong>解释型语言</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JavaScript是一门解释型语言，所谓解释型值语言不需要被编</span><br><span class="line">译为机器码在执行，而是直接执行。</span><br><span class="line">由于少了编译这一步骤，所以解释型语言开发起来尤为轻松，</span><br><span class="line">但是解释型语言运行较慢也是它的劣势。</span><br></pre></td></tr></table></figure></li>
-<li><strong>类似于 C 和 Java 的语法结构</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JavaScript的语法结构与C和Java很像，向<span class="keyword">for</span>、<span class="keyword">if</span>、<span class="keyword">while</span>等语</span><br><span class="line">句和Java的基本上是一模一样的。</span><br><span class="line">所以有过C和Java基础的同学学习起来会轻松很多。</span><br></pre></td></tr></table></figure></li>
-<li><strong>动态的语言</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JavaScript是一门动态语言，所谓的动态语言可以暂时理解为</span><br><span class="line">在语言中的一切内容都是不确定的。比如一个变量，这一时刻</span><br><span class="line">是个整型，下一时刻可能会变成字符串了。</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="Java语言和JS语言的对比"><a href="#Java语言和JS语言的对比" class="headerlink" title="Java语言和JS语言的对比"></a>Java语言和JS语言的对比</h2><ul>
-<li>Java语言是属于编译型语言+解释型语言，JS语言是属于解释型语言；<br>（Java代码是由jvm先编译成class再解释并执行，JS代码是由浏览器引擎直接解释执行）</li>
-<li>JS语言是模仿Java语言的，因此JS语言也是具备面向对象的思想；</li>
-<li>Java代码写出来可以是一个独立的程序，而JS需要嵌入到HTML文件中才能生效</li>
-<li>Java语言是一门强类型语言，JS语言是一门弱类型语言</li>
-</ul>
-<h2 id="JS代码的编写位置"><a href="#JS代码的编写位置" class="headerlink" title="JS代码的编写位置"></a>JS代码的编写位置</h2><blockquote>
-<p>我们目前学习的JS全都是客户端的JS，也就是说全都是需要在<br>浏览器中运行的，所以我们的JS代码全都需要在网页中编写</p>
-</blockquote>
-<ul>
-<li>内部js<blockquote>
-<p>写在<code>&lt;script&gt;&lt;/script&gt;</code>这对标签中</p>
-</blockquote>
-</li>
-<li>外部js<blockquote>
-<p>写在.js文件中，然后通过“<code>&lt;script src=&quot;外部js文件的路径&quot;&gt;&lt;/script&gt;</code>”</p>
-</blockquote>
-</li>
-<li>行内js（局部js、临时js）<blockquote>
-<p>写在某一个HTML标签的事件中</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">&lt;!--这个就是引入外部js--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/test.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">			<span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="javascript">			 * 内部js</span></span></span><br><span class="line"><span class="comment"><span class="javascript">			 */</span></span></span><br><span class="line"><span class="javascript">			</span></span><br><span class="line"><span class="javascript">			<span class="comment">//这里就可以写js代码</span></span></span><br><span class="line"><span class="javascript">			</span></span><br><span class="line"><span class="javascript">		</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 此处省略HTML结构代码 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="JS语言的执行过程"><a href="#JS语言的执行过程" class="headerlink" title="JS语言的执行过程"></a>JS语言的执行过程</h4><blockquote>
-<p>客户端访问某一个网站时，先从服务器直接下载js文件/代码，再由浏览器的引擎直接执行</p>
-</blockquote>
-<h4 id="JS代码的注释"><a href="#JS代码的注释" class="headerlink" title="JS代码的注释"></a>JS代码的注释</h4><p>JS注释和Java一样：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">单行注释：<span class="comment">//注释内容</span></span><br><span class="line">多行注释：<span class="comment">/*注释内容*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="JS中定义变量的语法"><a href="#JS中定义变量的语法" class="headerlink" title="JS中定义变量的语法"></a>JS中定义变量的语法</h2><blockquote>
-<p>var 变量名 = 值;    <code>（根据值来动态确定变量的数据类型）</code></p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在运行时自动识别“张三”是一个字符串，那么在运行时该变量就属于string类型</span></span><br><span class="line"><span class="keyword">var</span> name=<span class="string">&quot;张三&quot;</span>;	</span><br><span class="line"></span><br><span class="line"><span class="comment">//在运行时自动识别18是一个数值型，那么运行时该变量就会自动变成number类型</span></span><br><span class="line"><span class="keyword">var</span> age=<span class="number">18</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//如果name变量不存在，则 创建一个新变量并赋值</span></span><br><span class="line"><span class="comment">//如果name变量已存在，则直接赋值（并不会报变量重复定义的错误！！）</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;李四&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出内容到网页页面上（会将内容写到body标签中）</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&quot;要输出的内容&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>JS中定义变量不需要指明类型，因此统一使用var来定义数据类型，<br>它的实际类型由运行时动态检测。</p>
-</blockquote>
-<h2 id="JS中的数据类型"><a href="#JS中的数据类型" class="headerlink" title="JS中的数据类型"></a>JS中的数据类型</h2><ul>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h4 id="JS中的数据类型"><a href="#JS中的数据类型" class="headerlink" title="JS中的数据类型"></a>JS中的数据类型</h4><ul>
 <li>引用类型（Object类型）</li>
 <li>基本类型（5种）<ul>
 <li>number类型（数值型）</li>
@@ -281,89 +213,139 @@
 </ul>
 </li>
 </ul>
-<h4 id="检测变量的实际运行时类型"><a href="#检测变量的实际运行时类型" class="headerlink" title="检测变量的实际运行时类型"></a>检测变量的实际运行时类型</h4><blockquote>
-<p>typeof(<code>要检测的变量</code>)</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name=<span class="string">&quot;张三&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> age=<span class="number">18</span>;</span><br><span class="line"><span class="keyword">var</span> flag=<span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> test;</span><br><span class="line">			</span><br><span class="line">alert(<span class="string">&quot;name变量的数据类型实际是：&quot;</span>+<span class="keyword">typeof</span>(name));	<span class="comment">//string类型</span></span><br><span class="line">alert(<span class="string">&quot;age变量的数据类型实际是：&quot;</span>+<span class="keyword">typeof</span>(age));		<span class="comment">//number类型</span></span><br><span class="line">alert(<span class="string">&quot;flag变量的数据类型实际是：&quot;</span>+<span class="keyword">typeof</span>(flag));	<span class="comment">//boolean类型</span></span><br><span class="line">alert(<span class="string">&quot;test变量的数据类型实际是：&quot;</span>+<span class="keyword">typeof</span>(test));	<span class="comment">//undefined类型</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="几个弹出提示框的代码"><a href="#几个弹出提示框的代码" class="headerlink" title="几个弹出提示框的代码"></a>几个弹出提示框的代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//提示框</span></span><br><span class="line">alert(<span class="string">&quot;登录成功&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//提示框（带确认按钮的提示框）</span></span><br><span class="line">confirm(<span class="string">&#x27;确认删除吗？&#x27;</span>)   </span><br><span class="line"><span class="comment">//它有一个值返回，返回的值类型是boolean</span></span><br><span class="line"><span class="comment">//用户点击了确定按钮  true</span></span><br><span class="line"><span class="comment">//用户点击了取消按钮  false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//提示框（带输入的提示框）</span></span><br><span class="line">prompt(<span class="string">&quot;弹出框的标题&quot;</span> , <span class="string">&quot;输入框中的默认值&quot;</span>)</span><br><span class="line"><span class="comment">//它有一个值返回，返回的值是用户在输入框输入的数据</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="JS中的运算符"><a href="#JS中的运算符" class="headerlink" title="JS中的运算符"></a>JS中的运算符</h2><blockquote>
-<p>赋值运算符<br>算术运算符<br>比较运算符（关系运算符）<br>逻辑运算符<br>三目运算符（三元运算符）<br>位运算符</p>
-</blockquote>
-<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">赋值运算符</span><br><span class="line">=</span><br><span class="line">		</span><br><span class="line">算术并赋值</span><br><span class="line">+=   -=    *=     /=   %=</span><br><span class="line">		</span><br><span class="line"><span class="keyword">var</span> str=<span class="string">&quot;张三&quot;</span>;  <span class="comment">//右边赋值给左边</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> number=<span class="number">10</span>;</span><br><span class="line"><span class="comment">//让number的值+100</span></span><br><span class="line">number+=<span class="number">100</span>;<span class="comment">//number=number+100;</span></span><br><span class="line">		</span><br><span class="line"><span class="comment">//让number的值*100</span></span><br><span class="line">number*=<span class="number">100</span>;<span class="comment">//number=number*100;</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">算术运算符（只有数值型的数据才能进行算术运算）</span><br><span class="line">+	加法</span><br><span class="line">-	减法</span><br><span class="line">*	乘法</span><br><span class="line">/	除法</span><br><span class="line">%	取余数</span><br><span class="line">		</span><br><span class="line">以下两个是难点</span><br><span class="line">++	自增<span class="number">1</span></span><br><span class="line">--	自减<span class="number">1</span></span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">！！注意事项！！</span><br><span class="line">在进行加法运算时，只要有字符串参与进来，则会改变原义，变成连接符</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num1=<span class="number">18</span>;</span><br><span class="line"><span class="keyword">var</span> num2=<span class="number">20</span>;</span><br><span class="line">		</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;和为：&quot;</span>+(num1+num2));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;差为：&quot;</span>+(num1-num2));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;积为：&quot;</span>+(num1*num2));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;商为：&quot;</span>+num1/num2);</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">%取余数，一般用于判断一个数是否被整除</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="number">10</span>%<span class="number">2</span>=<span class="number">0</span>   代表<span class="number">10</span>能被<span class="number">2</span>整除</span><br><span class="line"><span class="number">10</span>%<span class="number">4</span>=<span class="number">2</span>   代表<span class="number">10</span>不能被<span class="number">4</span>整除</span><br><span class="line"><span class="number">10</span>%<span class="number">5</span>=<span class="number">0</span>   代表<span class="number">10</span>能被<span class="number">5</span>整除</span><br><span class="line"></span><br><span class="line"><span class="comment">/*	</span></span><br><span class="line"><span class="comment">奇数：不能被2整除的数叫奇数</span></span><br><span class="line"><span class="comment">偶数：能被2整除的数叫偶数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="number">1</span>%<span class="number">2</span>=<span class="number">1</span>	代表不能被<span class="number">2</span>整除（奇数）</span><br><span class="line"><span class="number">2</span>%<span class="number">2</span>=<span class="number">0</span>	代表能被<span class="number">2</span>整除（偶数）</span><br><span class="line"><span class="number">3</span>%<span class="number">2</span>=<span class="number">1</span>	代表不能被<span class="number">2</span>整除（奇数）</span><br><span class="line"><span class="number">4</span>%<span class="number">2</span>=<span class="number">0</span>	代表能被<span class="number">2</span>整除（偶数）</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>注意事项<br><code>算术运算符中，number类型的一些注意事项（一般会在笔试题出现）</code></p>
+<p>对象，可以理解为它是一种复合值，它将很多值聚合到一起，可以通过名字访问这些值。可以看做是属性的无序集合，每个属性都是一个名/值对。</p>
 </blockquote>
-<blockquote>
-<p>【关于NaN】</p>
+<h4 id="创建对象有两种方式"><a href="#创建对象有两种方式" class="headerlink" title="创建对象有两种方式"></a>创建对象有两种方式</h4><blockquote>
+<p>创建一个person对象</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span>，全称叫not a number，表示不是一个数字</span><br><span class="line">通常在强转数值型时，强转失败就会出现<span class="literal">NaN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> test=<span class="string">&quot;A&quot;</span></span><br><span class="line">alert(<span class="built_in">Number</span>(test)); <span class="comment">//该结果是NaN</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>【问题一】</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test1=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> test2=<span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">alert(test1+test2+<span class="string">&quot;2&quot;</span>);	<span class="comment">//结果肯定是会做字符串拼接，所以结果是122</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//如果想让上面的表达式进行加法运算</span></span><br><span class="line">alert(test1+<span class="built_in">Number</span>(test2)+<span class="built_in">Number</span>(<span class="string">&quot;2&quot;</span>));</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>【问题二】</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字符串拼接  的优先级别  比  加法运算  高</span></span><br><span class="line"><span class="keyword">var</span> test1=<span class="number">100</span>;</span><br><span class="line"><span class="keyword">var</span> test2=<span class="string">&quot;B&quot;</span>;</span><br><span class="line">alert(test1-test2); <span class="comment">//该结果是NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//看到这个结果就代表你在运算过程中出现了一些不是数字的运算</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>【问题三】</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test1=<span class="string">&quot;100&quot;</span>; <span class="comment">//string类型</span></span><br><span class="line"><span class="keyword">var</span> test2=<span class="number">2</span>;</span><br><span class="line">alert(test1-test2); <span class="comment">//该结果是98，代表成功运算了</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//JS会将要运算的两个的值自动强转成number类型，</span></span><br><span class="line"><span class="comment">//如果其中一个值转换number类型失败，那么其运算结果就是NaN</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>【问题四】</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//该结果是200A</span></span><br><span class="line">alert(<span class="number">100</span> * <span class="string">&quot;2&quot;</span> + <span class="string">&#x27;A&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//该结果是NaN2</span></span><br><span class="line">alert(<span class="number">100</span> * <span class="string">&quot;B&quot;</span> + <span class="string">&quot;2&quot;</span>);</span><br><span class="line"><span class="comment">//100 * &quot;B&quot; = NaN</span></span><br><span class="line"><span class="comment">//NaN + &quot;2&quot;  这里的加号是字符串连接，因此结果是NaN2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//该结果是NaN</span></span><br><span class="line">alert(<span class="number">100</span> * <span class="string">&#x27;a&#x27;</span> + <span class="number">20</span>);</span><br><span class="line"><span class="comment">//NaN与任意数值型数据运算，其结果还是NaN</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="比较运算符（关系运算符）"><a href="#比较运算符（关系运算符）" class="headerlink" title="比较运算符（关系运算符）"></a>比较运算符（关系运算符）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">比较运算符（关系运算符）</span><br><span class="line">&gt;       是否大于</span><br><span class="line">&gt;=      是否大于等于</span><br><span class="line">&lt;       是否小于</span><br><span class="line">&lt;=      是否小于等于</span><br><span class="line">==      是否等于</span><br><span class="line">!=      是否不等于</span><br><span class="line"></span><br><span class="line">该运算符的结果一定是布尔值（<span class="literal">true</span>/<span class="literal">false</span>）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//判断两个数大小</span></span><br><span class="line"><span class="keyword">var</span> n1 = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">var</span> n2 = <span class="number">102</span>;</span><br><span class="line"><span class="built_in">console</span>.log( n1 &gt; n2 );  <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log( n1 &lt; n2 );  <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//判断一个数是否是偶数</span></span><br><span class="line">int number=<span class="number">101</span>;</span><br><span class="line">System.out.println( <span class="number">101</span>%<span class="number">2</span> == <span class="number">0</span> );  </span><br><span class="line"><span class="comment">//如果结果为true，可以认为是偶数</span></span><br><span class="line"><span class="comment">//如果结果为false，可以认为不是偶数</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>【全等于判断】<br><code>除了==以外，JS中还提供了 ===</code></p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log( <span class="number">100</span> == <span class="string">&#x27;100&#x27;</span> );  <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="number">100</span> === <span class="string">&#x27;100&#x27;</span> );  <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//==在判断两个数值型数据时，会自动转成数值再判断是否相等</span></span><br><span class="line"><span class="comment">//===不会自动转换</span></span><br><span class="line"></span><br><span class="line">因此===比较的是值和类型是否都相等</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">同样我们还有!==表示不全等，同样比较时不会自动转型。 </span><br><span class="line"><span class="built_in">console</span>.log( ”<span class="number">55</span>” != <span class="number">55</span> );  <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log( ”<span class="number">55</span>” !== <span class="number">55</span> );  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">逻辑运算符（一般用于多条件组合时采用）</span><br><span class="line">&amp;&amp;		与（并且）</span><br><span class="line">||		或（或者）</span><br><span class="line">!		非（取反）</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">条件<span class="number">1</span> &amp;&amp;  条件<span class="number">2</span> &amp;&amp; 条件<span class="number">3</span>    <span class="comment">//有一个条件为假，结果就是假</span></span><br><span class="line">条件<span class="number">1</span> ||  条件<span class="number">2</span> || 条件<span class="number">3</span>    <span class="comment">//有一个条件为真，结果就是真</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//三目运算符</span></span><br><span class="line">条件 ? 值<span class="number">1</span> : 值<span class="number">2</span></span><br><span class="line"><span class="comment">//条件如果为true，则输出值1，否则输出值2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> number1=<span class="number">1000</span>;</span><br><span class="line"><span class="keyword">var</span> number2=<span class="number">2000</span>;</span><br><span class="line"><span class="comment">//比较两个数大小</span></span><br><span class="line"><span class="comment">//&quot;number1比number2大&quot;</span></span><br><span class="line"><span class="comment">//&quot;number1比number2小&quot;</span></span><br><span class="line">		</span><br><span class="line"><span class="built_in">console</span>.log(number1&gt;number2 ? <span class="string">&quot;number1比number2大&quot;</span> : <span class="string">&quot;number1比number2小&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="JS中的数组（Array）"><a href="#JS中的数组（Array）" class="headerlink" title="JS中的数组（Array）"></a>JS中的数组（Array）</h2><ul>
-<li><code>Array用于表示一个有序的数组</code></li>
-<li><code>JS的数组中可以保存任意类型的数据</code></li>
-<li><code>JS的数组长度是动态可扩充的</code></li>
+<ul>
+<li>第一种<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.name = <span class="string">&quot;孙悟空&quot;</span>;</span><br><span class="line">person.age = <span class="number">18</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person);			<span class="comment">//打印person对象，显示的是对象中的属性名/值对</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(person));    <span class="comment">//打印person对象的所属数据类型，显示是Object</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="创建数组的方式有两种"><a href="#创建数组的方式有两种" class="headerlink" title="创建数组的方式有两种"></a>创建数组的方式有两种</h4><ul>
-<li><p>使用构造器：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(数组的长度);</span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">123</span>,’hello’,<span class="literal">true</span>);</span><br></pre></td></tr></table></figure></li>
-<li><p>使用[]</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">123</span>,’hello’,<span class="literal">false</span>];</span><br></pre></td></tr></table></figure></li>
+<ul>
+<li>第二种<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&quot;孙悟空&quot;</span>,</span><br><span class="line">	<span class="attr">age</span>:<span class="number">18</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(person);			<span class="comment">//打印person对象，显示的是对象中的属性名/值对</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(person));    <span class="comment">//打印person对象的所属数据类型，显示是Object</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="获取数组元素"><a href="#获取数组元素" class="headerlink" title="获取数组元素"></a>获取数组元素</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//读取数组中的值使用数组[索引]的方式，注意索引是从0开始的</span></span><br><span class="line">数组变量名[下标]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">123</span>,’hello’,<span class="literal">true</span>);</span><br><span class="line">alert(arr[<span class="number">0</span>]);   <span class="comment">//123</span></span><br><span class="line">alert(arr[<span class="number">1</span>]);   <span class="comment">//hello</span></span><br><span class="line">alert(arr[<span class="number">2</span>]);   <span class="comment">//true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="对象属性的访问"><a href="#对象属性的访问" class="headerlink" title="对象属性的访问"></a>对象属性的访问</h4><ul>
+<li>获取属性值<blockquote>
+<p>对象.属性名<br>对象[‘属性名’]</p>
+</blockquote>
+</li>
+<li>设置属性值<blockquote>
+<p>对象.属性名 = 值<br>对象[‘属性名’] = 值</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="栈和堆"><a href="#栈和堆" class="headerlink" title="栈和堆"></a>栈和堆</h2><blockquote>
+<p>JavaScript在运行时，数据是保存到<code>栈内存</code>和<code>堆内存</code>当中的<br>简单来说栈内存用来保存变量和基本类型数据，堆内存用来保存对象。</p>
+</blockquote>
+<ul>
+<li>我们在声明一个变量时，实际上就是在栈内存中创建了一个空间用来保存变量。<ul>
+<li>如果是基本类型，则数据直接在栈内存中保存，</li>
+<li>如果是引用类型，则会在堆内存中保存，变量中保存的实际上对象在堆内存中的地址。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210327-1616835132698" alt="图片描述"></p>
+<h2 id="JS的三类对象"><a href="#JS的三类对象" class="headerlink" title="JS的三类对象"></a>JS的三类对象</h2><p>JS中，可以将对象分为三类</p>
+<ul>
+<li><strong><code>内部对象</code></strong><ul>
+<li>本章后续主要讲解的就是内部对象，例如Date、Array、Math…</li>
+</ul>
+</li>
+<li><strong><code>宿主对象</code></strong><ul>
+<li>前一章节我们讲到的DOM相关的对象就是宿主对象</li>
+<li>后一章节我们要讲的BOM相关的对象也是宿主对象</li>
+</ul>
+</li>
+<li><strong><code>自定义对象</code></strong><ul>
+<li>前面我们创建出来的person对象就是自定义对象</li>
+</ul>
+</li>
+</ul>
+<h3 id="内部对象"><a href="#内部对象" class="headerlink" title="内部对象"></a>内部对象</h3><blockquote>
+<p><code>Number对象、String对象、Boolean对象</code> 3个基本类型的包装类<br>Date对象、Array对象、Function对象、Math对象<br>RegExp对象</p>
+</blockquote>
+<h4 id="Number对象"><a href="#Number对象" class="headerlink" title="Number对象"></a>Number对象</h4><p>Number是数值对应的引用数据类型（包装类），创建Number对象只需要在调用构造函数时传递一个数值：</p>
+<blockquote>
+<p>var num = new Number(20);</p>
+</blockquote>
+<p><code>使用数值时我们建议使用基本数值，而不建议使用包装类</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n1 = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">4</span>);		<span class="comment">//n1是引用类型</span></span><br><span class="line"><span class="keyword">var</span> n2 = <span class="number">4</span>;					<span class="comment">//n2是基本类型</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(n1));   <span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(n2));   <span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log(n1===n2);      <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="向数组追加元素"><a href="#向数组追加元素" class="headerlink" title="向数组追加元素"></a>向数组追加元素</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数组变量名.push(元素);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">123</span>,’hello’,<span class="literal">true</span>);</span><br><span class="line">arr.push(<span class="string">&quot;哈哈&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>关于number相关的几个常用函数</p>
+<blockquote>
+<p>Number(值) ，该函数用于将数据强转数值型<br>parseInt(值)，该函数用于将数据转换成整型<br>parseFloat(值)，该函数用于将数据转换成浮点型<br>isNaN(值)，该函数用于检测某一个数据是否是数值</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="built_in">isNaN</span>(<span class="string">&quot;A&quot;</span>));         <span class="comment">//true，对，它不是数字</span></span><br><span class="line">alert(<span class="built_in">isNaN</span>(<span class="number">123</span>));         <span class="comment">//false，错，它是数字</span></span><br><span class="line">alert(<span class="built_in">isNaN</span>(<span class="string">&quot;AB&quot;</span>));        <span class="comment">//true，对，它不是数字</span></span><br><span class="line">alert(<span class="built_in">isNaN</span>(<span class="string">&quot;123&quot;</span>));       <span class="comment">//false，错，它是数字</span></span><br><span class="line">alert(<span class="built_in">isNaN</span>(<span class="string">&quot;3.14&quot;</span>));      <span class="comment">//false，错，它是数字</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="获取数组元素个数"><a href="#获取数组元素个数" class="headerlink" title="获取数组元素个数"></a>获取数组元素个数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数组变量名.length</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> strArray=[<span class="string">&quot;张三&quot;</span>,<span class="string">&quot;李四&quot;</span>,<span class="string">&quot;王五&quot;</span>];</span><br><span class="line">alert(arr.length);  <span class="comment">//弹出框显示3</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="删除数组元素"><a href="#删除数组元素" class="headerlink" title="删除数组元素"></a>删除数组元素</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">数组变量名.splice(要删除的指定下标,要删除几个);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> strArray=[<span class="string">&quot;张三&quot;</span>,<span class="string">&quot;李四&quot;</span>,<span class="string">&quot;王五&quot;</span>];</span><br><span class="line">strArray.splice(<span class="number">0</span>,<span class="number">1</span>);<span class="comment">//从第0个元素开始删，删1个</span></span><br><span class="line">strArray.splice(<span class="number">0</span>,<span class="number">2</span>);<span class="comment">//从第0个元素开始删，删2个</span></span><br><span class="line">strArray.splice(<span class="number">1</span>,<span class="number">1</span>);<span class="comment">//从第1个元素开始删，删1个</span></span><br></pre></td></tr></table></figure>
+<h4 id="String对象"><a href="#String对象" class="headerlink" title="String对象"></a>String对象</h4><p>String 类型是字符串的对象包装类型，可以像下面这样使用 String 构造函数来创建。</p>
+<blockquote>
+<p>var str = new String(“hello world”);</p>
+</blockquote>
+<p><code>可以使用length属性来获取字符串的字符长度</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n1 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> n2 = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(n1));    <span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(n2));    <span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(n1===n2);       <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>字符串的常用函数见 <a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/jsref-obj-string.html">String对象常用属性和方法</a></p>
+</blockquote>
+<h4 id="Boolean对象"><a href="#Boolean对象" class="headerlink" title="Boolean对象"></a>Boolean对象</h4><p>Boolean 类型是与布尔值对应的引用类型，可以采用这种方式创建：</p>
+<blockquote>
+<p>var b = new Boolean(true);</p>
+</blockquote>
+<p><code>我们最好永远不要使用Boolean包装类</code>。</p>
+<h4 id="Date对象"><a href="#Date对象" class="headerlink" title="Date对象"></a>Date对象</h4><blockquote>
+<p>Date类型用来表示一个时间。<br>Date采取的是时间戳的形式表示时间，所谓时间戳指的是从1970年1月1日0时0秒0分开始经过的毫秒数来计算时间。</p>
+</blockquote>
+<ul>
+<li>直接使用new Date()就可以创建一个Date对象。</li>
+<li>创造对象时不传参数默认创建当前时间。可以传递一个毫秒数用来创建具体的时间。</li>
+<li>也可以传递一个日期的字符串，来创建一个时间。<ul>
+<li>格式为：月份/日/年 时:分:秒 </li>
+<li>例如：06/13/2004 12:12:12</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d1 = <span class="keyword">new</span> <span class="built_in">Date</span>();  <span class="comment">//不传参数，默认是当前时间</span></span><br><span class="line"><span class="built_in">console</span>.log(d1);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d2 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1616856089000</span>);  <span class="comment">//传入一个时间戳</span></span><br><span class="line"><span class="built_in">console</span>.log(d2);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d3 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&quot;2020/01/01 00:00:10&quot;</span>);  <span class="comment">//传入一个日期格式的字符串</span></span><br><span class="line"><span class="built_in">console</span>.log(d3);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d4 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&quot;2020-01-01 00:00:10&quot;</span>);  <span class="comment">//传入一个日期格式的字符串</span></span><br><span class="line"><span class="built_in">console</span>.log(d4);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">			</span><br><span class="line"><span class="comment">//取出年份</span></span><br><span class="line"><span class="keyword">var</span> year=obj.getFullYear();</span><br><span class="line">alert(<span class="string">&quot;年份是：&quot;</span>+year);</span><br><span class="line"><span class="comment">//取出月份(0 ~ 11)</span></span><br><span class="line"><span class="keyword">var</span> month=obj.getMonth()+<span class="number">1</span>;</span><br><span class="line">alert(<span class="string">&quot;月份是：&quot;</span>+month);</span><br><span class="line"><span class="comment">//取出日（1~31）</span></span><br><span class="line"><span class="keyword">var</span> day=obj.getDate();</span><br><span class="line">alert(<span class="string">&quot;日是：&quot;</span>+day);</span><br><span class="line"><span class="comment">//取出时(0 ~ 23)</span></span><br><span class="line"><span class="keyword">var</span> hour=obj.getHours();</span><br><span class="line">alert(<span class="string">&quot;时是：&quot;</span>+hour);</span><br><span class="line"><span class="comment">//取出分 (0 ~ 59)</span></span><br><span class="line"><span class="keyword">var</span> minute=obj.getMinutes();</span><br><span class="line">alert(<span class="string">&quot;分是：&quot;</span>+minute);</span><br><span class="line"><span class="comment">//取出秒(0 ~ 59)</span></span><br><span class="line"><span class="keyword">var</span> seconds=obj.getSeconds();</span><br><span class="line">alert(<span class="string">&quot;秒是：&quot;</span>+seconds);</span><br><span class="line">			</span><br><span class="line"><span class="comment">//转换成时间戳（ 距离1970 年 1 月 1 日0时0分0秒的毫秒数）</span></span><br><span class="line"><span class="keyword">var</span> timestamp=obj.getTime();</span><br><span class="line">alert(<span class="string">&quot;时间戳是：&quot;</span>+timestamp);</span><br></pre></td></tr></table></figure>
 
 
+<h4 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h4><blockquote>
+<p>JS还为保存数学公式和信息提供了一个公共位置，即 Math 对象。</p>
+</blockquote>
+<p>与我们在 JavaScript 直接编写的计算功能相比，Math对象提供的计算功能执行起来要快得多。<br>Math对象中还提供了辅助完成这些计算的属性和方法。</p>
+<p>Math的常用方法</p>
+<ul>
+<li>最大最小值<ul>
+<li>Math.max()获取最大值</li>
+<li>Math.min()获取最小值</li>
+</ul>
+</li>
+<li>舍入<ul>
+<li>向上舍 Math.ceil()</li>
+<li>向下舍 Math.floor()</li>
+<li>四舍五入 Math.round()</li>
+</ul>
+</li>
+<li>随机数<ul>
+<li>Math.random()</li>
+<li>选取某个范围内的随机值：<blockquote>
+<p>值 = Math.floor(Math.random() * 可能值的总数 + 第一个可能的值)</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210328-1616943418594" alt="图片描述"></p>
+<h4 id="Function对象"><a href="#Function对象" class="headerlink" title="Function对象"></a>Function对象</h4><blockquote>
+<p>Function代表一个函数，函数也是一个对象</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; &#125;;   <span class="comment">//sum是一个function对象</span></span><br></pre></td></tr></table></figure>
+<p>由于函数是对象，因此函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定。</p>
+<h4 id="Array对象"><a href="#Array对象" class="headerlink" title="Array对象"></a>Array对象</h4><blockquote>
+<p>见第一章的“JS中的数组（Array）”</p>
+</blockquote>
 
       
 
@@ -475,7 +457,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/10/07/%E5%88%9D%E8%AF%86JavaScript/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/10/07/JS%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -489,18 +471,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/10/07/%E5%87%BD%E6%95%B0%E5%92%8C%E4%BA%8B%E4%BB%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/10/07/BOM/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          函数和事件
+          BOM
         
       </div>
     </a>
   
   
-    <a href="/2021/10/07/DOM/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">DOM</div>
+    <a href="/2021/10/07/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">正则表达式</div>
       <i class="icon-circle-right"></i>
     </a>
   

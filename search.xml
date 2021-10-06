@@ -5116,4 +5116,562 @@
         <tag>JavaScript</tag>
       </tags>
   </entry>
+  <entry>
+    <title>DOM</title>
+    <url>/2021/10/07/DOM/</url>
+    <content><![CDATA[<!-- GFM-TOC -->
+<span id="more"></span>
+
+<!-- GFM-TOC -->
+<h2 id="什么DOM"><a href="#什么DOM" class="headerlink" title="什么DOM"></a>什么DOM</h2><p>DOM，全称Document Object Model<code>文档对象模型</code>。<br>JS中通过DOM来对HTML文档进行操作，只要理解了DOM就可以随心所欲的操作web页面。</p>
+<ul>
+<li>文档<blockquote>
+<p>文档表示的就是整个的HTML网页文档</p>
+</blockquote>
+</li>
+<li>对象<blockquote>
+<p>对象表示将网页中的每一个部分都转换为了一个对象。</p>
+</blockquote>
+</li>
+<li>模型<blockquote>
+<p>使用模型来表示对象之间的关系，这样方便我们获取对象。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="HTML的DOM模型"><a href="#HTML的DOM模型" class="headerlink" title="HTML的DOM模型"></a>HTML的DOM模型</h2><p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210323-1616508553791" alt="图片描述"></p>
+<h2 id="节点（Node）"><a href="#节点（Node）" class="headerlink" title="节点（Node）"></a>节点（Node）</h2><p>节点，是构成我们网页的最基本的组成部分，网页中的每一个部分都可以称为是一个节点，<br>虽然都是节点，但是实际上他们的具体类型是不同的。</p>
+<h4 id="常用节点分为四类"><a href="#常用节点分为四类" class="headerlink" title="常用节点分为四类"></a>常用节点分为四类</h4><ul>
+<li><code>文档节点</code>：整个HTML文档</li>
+<li><code>元素节点</code>：HTML文档中的HTML标签</li>
+<li><code>属性节点</code>：元素的属性</li>
+<li><code>文本节点</code>：HTML标签中的文本内容</li>
+</ul>
+<p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210323-1616508854999" alt="图片描述"></p>
+<h3 id="文档节点（document）"><a href="#文档节点（document）" class="headerlink" title="文档节点（document）"></a>文档节点（document）</h3><p>文档节点document，代表的是整个HTML文档，网页中的所有节点都是它的子节点。</p>
+<blockquote>
+<p>document对象作为window对象的属性存在的，我们不用获取可以直接使用。<br>通过该对象我们可以在整个文档访问内查找节点对象，并可以通过该对象创建各种节点对象</p>
+</blockquote>
+<h3 id="元素节点（element）"><a href="#元素节点（element）" class="headerlink" title="元素节点（element）"></a>元素节点（element）</h3><p>HTML中的各种标签都是元素节点，这也是我们最常用的一个节点，浏览器会将页面中所有的标签都转换为一个元素节点。</p>
+<blockquote>
+<p>我们可以通过document的方法来获取元素节点，比如：<br><code>document.getElementById()  根据id属性值获取一个元素节点对象</code>。</p>
+</blockquote>
+<h3 id="文本节点（Text）"><a href="#文本节点（Text）" class="headerlink" title="文本节点（Text）"></a>文本节点（Text）</h3><p>文本节点表示的是HTML标签以外的文本内容，任意非HTML的文本都是文本节点，它包括可以字面解释的纯文本内容。</p>
+<blockquote>
+<p>文本节点一般是作为元素节点的子节点存在的。<br>获取文本节点时，一般先要获取元素节点，再通过元素节点获取文本节点。<br>例如：<br>元素节点.firstChild;<br><code>获取元素节点的第一个子节点，一般为文本节点</code></p>
+</blockquote>
+<h3 id="属性节点（Attr）"><a href="#属性节点（Attr）" class="headerlink" title="属性节点（Attr）"></a>属性节点（Attr）</h3><p>属性节点表示的是标签中的一个一个的属性，这里要注意的是属性节点并非是元素节点的子节点，而是元素节点的一部分，<br>可以通过元素节点来获取指定的属性节点。</p>
+<blockquote>
+<p>例如：元素节点.getAttributeNode(“属性名”);<br><code>注意：我们一般不使用属性节点</code>。</p>
+</blockquote>
+<h2 id="获取元素节点"><a href="#获取元素节点" class="headerlink" title="获取元素节点"></a>获取元素节点</h2><p>通过document对象调用</p>
+<ul>
+<li>getElementById()<blockquote>
+<p>通过id属性获取一个元素节点对象</p>
+</blockquote>
+</li>
+<li>getElementsByTagName()<blockquote>
+<p>通过标签名获取一组元素节点对象</p>
+</blockquote>
+</li>
+<li>getElementsByName()<blockquote>
+<p>通过name属性获取一组元素节点对象</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">	账号：<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">	密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;pwd&quot;</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">			</span><br><span class="line">	爱好：</span><br><span class="line">	游戏<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;game&quot;</span> /&gt;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span></span><br><span class="line">	看书<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;read&quot;</span> /&gt;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span></span><br><span class="line">	篮球<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;巴斯kid波&quot;</span> /&gt;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span></span><br><span class="line">	游泳<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;swimming&quot;</span> /&gt;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span></span><br><span class="line">	k歌<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;singing&quot;</span> /&gt;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>点我注册<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取账号输入框的元素节点对象</span></span><br><span class="line"><span class="keyword">var</span> obj1 = <span class="built_in">document</span>.getElementById(<span class="string">&quot;username&quot;</span>);</span><br><span class="line"><span class="comment">//获取密码输入框的元素节点对象</span></span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="built_in">document</span>.getElementById(<span class="string">&quot;pwd&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取一组name为hobby的元素节点对象</span></span><br><span class="line"><span class="keyword">var</span> obj3 = <span class="built_in">document</span>.getElementsByName(<span class="string">&quot;hobby&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取一组标签名为input的元素节点对象</span></span><br><span class="line"><span class="keyword">var</span> obj3 = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;input&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="获取元素节点的子节点"><a href="#获取元素节点的子节点" class="headerlink" title="获取元素节点的子节点"></a>获取元素节点的子节点</h2><p>通过具体的元素节点，可以获取其子节点</p>
+<ul>
+<li>childNodes<blockquote>
+<p>属性，表示当前节点的所有子节点</p>
+</blockquote>
+</li>
+<li>firstChild<blockquote>
+<p>属性，表示当前节点的第一个子节点</p>
+</blockquote>
+</li>
+<li>lastChild<blockquote>
+<p>属性，表示当前节点的最后一个子节点</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="获取父节点和兄弟节点"><a href="#获取父节点和兄弟节点" class="headerlink" title="获取父节点和兄弟节点"></a>获取父节点和兄弟节点</h2><p>通过具体的元素节点，可以获取其父节点和兄弟节点</p>
+<ul>
+<li>parentNode<blockquote>
+<p>属性，表示当前节点的父节点</p>
+</blockquote>
+</li>
+<li>previousSibling<blockquote>
+<p>属性，表示当前节点的前一个兄弟节点</p>
+</blockquote>
+</li>
+<li>nextSibling<blockquote>
+<p>属性，表示当前节点的后一个兄弟节点</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="获取元素节点的属性"><a href="#获取元素节点的属性" class="headerlink" title="获取元素节点的属性"></a>获取元素节点的属性</h2><blockquote>
+<p><code>元素节点对象.属性名</code></p>
+</blockquote>
+<p>例，获取属性：</p>
+<ul>
+<li>元素节点对象.value</li>
+<li>元素节点对象.id</li>
+<li>元素节点对象.className</li>
+</ul>
+<p>例，设置属性：</p>
+<ul>
+<li>元素节点对象.value = 值</li>
+<li>元素节点对象.id = 值</li>
+<li>元素节点对象.className = 值</li>
+</ul>
+<h4 id="innerHTML"><a href="#innerHTML" class="headerlink" title="innerHTML"></a>innerHTML</h4><p>元素节点通过innerHTML属性获取和设置标签内部的html代码</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;test&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>111<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>222<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="built_in">document</span>.getElementById(<span class="string">&quot;test&quot;</span>);</span><br><span class="line"><span class="comment">//获取节点对象内部的HTML代码</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.innerHTML);</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置节点对象内部的HTML代码</span></span><br><span class="line">obj.innerHTML = <span class="string">&quot;&lt;span&gt;is new content&lt;/span&gt;&quot;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="节点的修改"><a href="#节点的修改" class="headerlink" title="节点的修改"></a>节点的修改</h2><p>这里的修改我们主要指对元素节点的操作。</p>
+<ul>
+<li>创建节点<blockquote>
+<p>document.createElement(标签名) </p>
+</blockquote>
+</li>
+<li>删除节点<blockquote>
+<p>父节点.removeChild(子节点) </p>
+</blockquote>
+</li>
+<li>替换节点<blockquote>
+<p>父节点.replaceChild(新节点 , 旧节点) </p>
+</blockquote>
+</li>
+<li>插入节点<blockquote>
+<p>父节点.appendChild(子节点)<br>父节点.insertBefore(新节点 , 旧节点)</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>BOM</title>
+    <url>/2021/10/07/BOM/</url>
+    <content><![CDATA[<!-- GFM-TOC -->
+<span id="more"></span>
+
+<!-- GFM-TOC -->
+<h2 id="什么是BOM"><a href="#什么是BOM" class="headerlink" title="什么是BOM"></a>什么是BOM</h2><blockquote>
+<p>ECMAScript无疑是JavaScript的核心，但是要想在浏览器中使用JavaScript，<br>那么<code>BOM（浏览器对象模型）</code>才是真正的核心。</p>
+</blockquote>
+<p>BOM主要包含了如下几个对象：</p>
+<ul>
+<li>window对象</li>
+<li>location对象</li>
+<li>history对象</li>
+<li>navigator对象</li>
+<li>screen对象</li>
+<li>document对象</li>
+</ul>
+<h2 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h2><blockquote>
+<p>window对象是BOM的核心，它表示一个浏览器的窗口对象。</p>
+</blockquote>
+<p>在浏览器中我们可以通过window对象来访问操作浏览器，同时window也是作为全局对象存在的。<br>所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员。</p>
+<ul>
+<li>全局变量是 window 对象的属性。</li>
+<li>全局函数是 window 对象的方法。</li>
+<li>甚至 HTML DOM 的 document 也是 window 对象的属性之一：<ul>
+<li><blockquote>
+<p>window.document.getElementById(“test”);</p>
+</blockquote>
+</li>
+<li>与此相同：</li>
+<li><blockquote>
+<p>document.getElementById(“test”);</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="window窗口的尺寸"><a href="#window窗口的尺寸" class="headerlink" title="window窗口的尺寸"></a>window窗口的尺寸</h3><p>浏览器中提供了四个属性用来确定窗口的尺寸：</p>
+<ul>
+<li>网页窗口的大小<ul>
+<li>innerWidth</li>
+<li>innerHeight</li>
+</ul>
+</li>
+<li>浏览器本身的尺寸<ul>
+<li>outerWidth</li>
+<li>outerHeight</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;windows窗口宽度：&quot;</span> + <span class="built_in">window</span>.innerWidth);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;windows窗口高度：&quot;</span> + <span class="built_in">window</span>.innerHeight);</span><br><span class="line">			</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;浏览器宽度：&quot;</span> + <span class="built_in">window</span>.outerWidth);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;浏览器高度：&quot;</span> + <span class="built_in">window</span>.outerHeight);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210329-1616948662085" alt="图片描述"></p>
+<h3 id="window窗口弹出的对话框"><a href="#window窗口弹出的对话框" class="headerlink" title="window窗口弹出的对话框"></a>window窗口弹出的对话框</h3><p>通过 alert() 、 confirm() 、 prompt() 方法可以调用系统对话框向用户显示消息</p>
+<blockquote>
+<p>它们的外观由操作系统及（或）浏览器设置决定，而不是由 CSS 决定。<br>显示系统对话框时会导致程序终止，当关闭对话框程序会恢复执行</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.alert(<span class="string">&quot;哈哈&quot;</span>);</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line">alert(<span class="string">&quot;哈哈&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> select = <span class="built_in">window</span>.confirm(<span class="string">&quot;确认删除吗？&quot;</span>);</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="keyword">var</span> select = confirm(<span class="string">&quot;确认删除吗？&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> name = <span class="built_in">window</span>.prompt(<span class="string">&quot;请输入姓名&quot;</span>);</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="keyword">var</span> name = prompt(<span class="string">&quot;请输入姓名&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="打开窗口与关闭窗口"><a href="#打开窗口与关闭窗口" class="headerlink" title="打开窗口与关闭窗口"></a>打开窗口与关闭窗口</h3><ul>
+<li>window.open() - 打开新窗口<ul>
+<li>语法<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.open(URL,name,specs,replace)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>window对象.close() - 关闭当前窗口<ul>
+<li>语法<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>对象.close()</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>window对象.moveTo() - 移动当前窗口<ul>
+<li>语法<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>对象.moveTo(x,y)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>window对象.resizeTo() - 调整当前窗口的尺寸<ul>
+<li>语法<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>对象.resizeTo(width,height)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">		</span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> myWin;</span></span><br><span class="line"><span class="javascript">			</span></span><br><span class="line"><span class="javascript">			<span class="comment">//打开一个新窗口</span></span></span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//在当前窗口打开新的地址</span></span></span><br><span class="line"><span class="javascript">				<span class="comment">//window.open(&quot;https://www.baidu.com/&quot;,&quot;_self&quot;);</span></span></span><br><span class="line"><span class="javascript">				</span></span><br><span class="line"><span class="javascript">				<span class="comment">//新开一个窗口打开新的地址</span></span></span><br><span class="line"><span class="javascript">				<span class="comment">//window.open(&quot;https://www.baidu.com/&quot;,&quot;_blank&quot;);</span></span></span><br><span class="line"><span class="javascript">				</span></span><br><span class="line"><span class="javascript">				<span class="comment">//接收打开的窗口对象，赋值给myWin</span></span></span><br><span class="line"><span class="javascript">				<span class="comment">//myWin = window.open(&quot;https://www.baidu.com/&quot;,&quot;_blank&quot;);</span></span></span><br><span class="line"><span class="javascript">				myWin = <span class="built_in">window</span>.open(<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;width=100,height=100&#x27;</span>);</span></span><br><span class="line"><span class="javascript">			&#125;</span></span><br><span class="line"><span class="javascript">			</span></span><br><span class="line"><span class="javascript">			</span></span><br><span class="line"><span class="javascript">			<span class="comment">//关闭窗口</span></span></span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				myWin.close();</span></span><br><span class="line"><span class="javascript">			&#125;</span></span><br><span class="line"><span class="javascript">			</span></span><br><span class="line"><span class="javascript">			</span></span><br><span class="line"><span class="javascript">			<span class="comment">//调整窗口大小</span></span></span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">test3</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				myWin.resizeTo(<span class="number">500</span>,<span class="number">500</span>);</span></span><br><span class="line"><span class="javascript">			&#125;</span></span><br><span class="line"><span class="javascript">			</span></span><br><span class="line"><span class="javascript">			</span></span><br><span class="line"><span class="javascript">			<span class="comment">//移动窗口位置</span></span></span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">test4</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				myWin.moveTo(<span class="number">100</span>,<span class="number">100</span>);</span></span><br><span class="line"><span class="javascript">			&#125;</span></span><br><span class="line"><span class="javascript">			</span></span><br><span class="line"><span class="javascript">			</span></span><br><span class="line"><span class="javascript">		</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;test1()&quot;</span>&gt;</span>打开一个新窗口<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;test2()&quot;</span>&gt;</span>关闭新的窗口<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;test3()&quot;</span>&gt;</span>调整窗口大小<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;test4()&quot;</span>&gt;</span>移动窗口位置<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="计时调用"><a href="#计时调用" class="headerlink" title="计时调用"></a>计时调用</h3><p>在 JavaScritp 中使用计时调用是很容易的，两个关键方法是:</p>
+<blockquote>
+<p>setInterval() - 间隔指定的毫秒数不停地执行指定的代码。<br>setTimeout() - 在指定的毫秒数后执行指定代码。</p>
+</blockquote>
+<h4 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout()"></a>setTimeout()</h4><blockquote>
+<p>setTimeout()在指定的毫秒数后<code>自动调用某个函数一次</code>，该函数返回一个 ID（数字），可以将这个ID传递给 clearTimeout() 来取消执行</p>
+</blockquote>
+<blockquote>
+<p>语法：<code>setTimeout(要执行的函数, 间隔毫秒数)</code><br>语法：<code>clearTimeout(要停止的ID)</code></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>点击按钮，3 秒后会弹出 &quot;Hello&quot;。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunction()&quot;</span>&gt;</span>点我<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">		    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; alert(<span class="string">&quot;Hello&quot;</span>); &#125;, <span class="number">3000</span>);</span></span><br><span class="line"><span class="javascript">		&#125;</span></span><br><span class="line"><span class="javascript">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>点击按钮，10 秒后会弹出 &quot;Hello&quot;。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;start()&quot;</span>&gt;</span>点我开始<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;stop()&quot;</span>&gt;</span>点我停止<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> sid;</span></span><br><span class="line"><span class="javascript">	</span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">		    sid = <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; alert(<span class="string">&quot;Hello&quot;</span>); &#125;, <span class="number">10000</span>);</span></span><br><span class="line"><span class="javascript">		&#125;</span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">stop</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">		    <span class="built_in">clearTimeout</span>(sid);</span></span><br><span class="line"><span class="javascript">		&#125;</span></span><br><span class="line"><span class="javascript">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="setInterval"><a href="#setInterval" class="headerlink" title="setInterval()"></a>setInterval()</h4><blockquote>
+<p>setInterval()在指定的毫秒数后<code>自动重复调用</code>某个函数，该函数返回一个 ID（数字），可以将这个ID传递给 clearInterval() 来取消执行</p>
+</blockquote>
+<blockquote>
+<p>语法：<code>setInterval(要执行的函数, 间隔毫秒数)</code><br>语法：<code>clearInterval(要停止的ID)</code></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>点击按钮，每隔10 秒后会弹出 &quot;Hello&quot;。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;start()&quot;</span>&gt;</span>点我开始<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;stop()&quot;</span>&gt;</span>点我停止<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> sid;</span></span><br><span class="line"><span class="javascript">	</span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">		    sid = <span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; alert(<span class="string">&quot;Hello&quot;</span>); &#125;, <span class="number">10000</span>);</span></span><br><span class="line"><span class="javascript">		&#125;</span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">stop</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">		    <span class="built_in">clearInterval</span>(sid);</span></span><br><span class="line"><span class="javascript">		&#125;</span></span><br><span class="line"><span class="javascript">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>每隔1秒让累计值加1。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;obj&quot;</span>&gt;</span>累积值：<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;start()&quot;</span>&gt;</span>点我开始<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;stop()&quot;</span>&gt;</span>点我停止<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> sid;</span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> index = <span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">	</span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">		    sid = <span class="built_in">setInterval</span>(<span class="string">&quot;doSomething()&quot;</span>, <span class="number">1000</span>);</span></span><br><span class="line"><span class="javascript">		&#125;</span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">stop</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">		    <span class="built_in">clearInterval</span>(sid);</span></span><br><span class="line"><span class="javascript">		&#125;</span></span><br><span class="line"><span class="javascript">		</span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> obj = <span class="built_in">document</span>.getElementById(<span class="string">&quot;obj&quot;</span>);</span></span><br><span class="line"><span class="javascript">			index++;</span></span><br><span class="line"><span class="javascript">			obj.innerHTML=<span class="string">&quot;累积值：&quot;</span>+index;</span></span><br><span class="line"><span class="javascript">			</span></span><br><span class="line"><span class="javascript">		&#125;</span></span><br><span class="line"><span class="javascript">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="location对象"><a href="#location对象" class="headerlink" title="location对象"></a>location对象</h2><blockquote>
+<p><code>location对象代表地址栏，主要是可以获取一些地址栏相关信息，以及提供一些导航功能</code>。</p>
+</blockquote>
+<ul>
+<li>location.hostname <ul>
+<li>返回 web 主机的域名 </li>
+</ul>
+</li>
+<li>location.pathname <ul>
+<li>返回当前页面的路径和文件名</li>
+</ul>
+</li>
+<li>location.port <ul>
+<li>返回 web 主机的端口 （80 或 443）</li>
+</ul>
+</li>
+<li>location.protocol <ul>
+<li>返回所使用的 web 协议（http: 或 https:）</li>
+</ul>
+</li>
+<li>location.href<ul>
+<li>href属性可以获取或修改当前页面的完整的URL地址，使浏览器跳转到指定页面</li>
+</ul>
+</li>
+<li>location.assign(“url地址”)<ul>
+<li>和href一样，可以使浏览器跳转新地址</li>
+</ul>
+</li>
+<li>location.replace(“url地址”)<ul>
+<li>功能同assign方法，只不过使用replace方法跳转地址不会体现到历史记录中。 </li>
+</ul>
+</li>
+<li>location.reload()<ul>
+<li>用于重新加载当前页面（相当于刷新）</li>
+</ul>
+</li>
+</ul>
+<h2 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h2><blockquote>
+<p>history对象指浏览器的历史记录对象，保存着用户上网的历史记录，从窗口被打开的那一刻算起</p>
+</blockquote>
+<ul>
+<li>history.back() <ul>
+<li>与在浏览器点击后退按钮相同</li>
+</ul>
+</li>
+<li>history.forward() <ul>
+<li>与在浏览器中点击向前按钮相同</li>
+</ul>
+</li>
+<li>history.go(步数)<ul>
+<li>使用 go() 方法可以在用户的历史记录中任意跳转，可以向后也可以向前。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">history.go(<span class="number">1</span>);	<span class="comment">//前进1步</span></span><br><span class="line">history.go(<span class="number">2</span>);	<span class="comment">//前进2步</span></span><br><span class="line">history.go(-<span class="number">1</span>);	<span class="comment">//后退1步</span></span><br><span class="line">history.go(-<span class="number">2</span>);	<span class="comment">//后退2步</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="navigator对象"><a href="#navigator对象" class="headerlink" title="navigator对象"></a>navigator对象</h2><blockquote>
+<p>navigator 对象包含了浏览器的版本、浏览器所支持的插件、浏览器所使用的语言<br>等各种与浏览器相关的信息。</p>
+</blockquote>
+<ul>
+<li>我们有时会使用navigator对象的userAgent属性来检查用户浏览器的版本<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">			<span class="comment">//可以打印出当前navigator对象的所有属性</span></span></span><br><span class="line"><span class="javascript">			<span class="built_in">console</span>.log(navigator);</span></span><br><span class="line"><span class="javascript">			</span></span><br><span class="line"><span class="javascript">			<span class="comment">//打印userAgent属性来检查用户浏览器的版本</span></span></span><br><span class="line"><span class="javascript">			<span class="built_in">console</span>.log(navigator.userAgent);</span></span><br><span class="line"><span class="javascript">			<span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="javascript">			我的浏览器引擎信息（谷歌浏览器）如下：</span></span></span><br><span class="line"><span class="comment"><span class="javascript">			Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 </span></span></span><br><span class="line"><span class="comment"><span class="javascript">			(KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36</span></span></span><br><span class="line"><span class="comment"><span class="javascript">			*/</span></span></span><br><span class="line"><span class="javascript">			</span></span><br><span class="line"><span class="javascript">		</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="screen对象"><a href="#screen对象" class="headerlink" title="screen对象"></a>screen对象</h2><blockquote>
+<p>screen 对象基本上只用来表明客户端的能力，其中包括浏览器窗口外部的显示器的信息，如像素宽度和高度等。 该对象作用不大，我们一般不太使用。</p>
+</blockquote>
+<ul>
+<li>screen.availWidth <ul>
+<li>可用的屏幕宽度</li>
+</ul>
+</li>
+<li>screen.availHeight<ul>
+<li>可用的屏幕高度</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS中的对象</title>
+    <url>/2021/10/07/JS%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<!-- GFM-TOC -->
+<span id="more"></span>
+
+<!-- GFM-TOC -->
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h4 id="JS中的数据类型"><a href="#JS中的数据类型" class="headerlink" title="JS中的数据类型"></a>JS中的数据类型</h4><ul>
+<li>引用类型（Object类型）</li>
+<li>基本类型（5种）<ul>
+<li>number类型（数值型）</li>
+<li>string类型（双引号 和 单引号 都一样）</li>
+<li>boolean类型</li>
+<li>null类型</li>
+<li>undefined类型（一切没有赋值的变量都属于Undefined类型）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>对象，可以理解为它是一种复合值，它将很多值聚合到一起，可以通过名字访问这些值。可以看做是属性的无序集合，每个属性都是一个名/值对。</p>
+</blockquote>
+<h4 id="创建对象有两种方式"><a href="#创建对象有两种方式" class="headerlink" title="创建对象有两种方式"></a>创建对象有两种方式</h4><blockquote>
+<p>创建一个person对象</p>
+</blockquote>
+<ul>
+<li>第一种<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.name = <span class="string">&quot;孙悟空&quot;</span>;</span><br><span class="line">person.age = <span class="number">18</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person);			<span class="comment">//打印person对象，显示的是对象中的属性名/值对</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(person));    <span class="comment">//打印person对象的所属数据类型，显示是Object</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ul>
+<li>第二种<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&quot;孙悟空&quot;</span>,</span><br><span class="line">	<span class="attr">age</span>:<span class="number">18</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(person);			<span class="comment">//打印person对象，显示的是对象中的属性名/值对</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(person));    <span class="comment">//打印person对象的所属数据类型，显示是Object</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="对象属性的访问"><a href="#对象属性的访问" class="headerlink" title="对象属性的访问"></a>对象属性的访问</h4><ul>
+<li>获取属性值<blockquote>
+<p>对象.属性名<br>对象[‘属性名’]</p>
+</blockquote>
+</li>
+<li>设置属性值<blockquote>
+<p>对象.属性名 = 值<br>对象[‘属性名’] = 值</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="栈和堆"><a href="#栈和堆" class="headerlink" title="栈和堆"></a>栈和堆</h2><blockquote>
+<p>JavaScript在运行时，数据是保存到<code>栈内存</code>和<code>堆内存</code>当中的<br>简单来说栈内存用来保存变量和基本类型数据，堆内存用来保存对象。</p>
+</blockquote>
+<ul>
+<li>我们在声明一个变量时，实际上就是在栈内存中创建了一个空间用来保存变量。<ul>
+<li>如果是基本类型，则数据直接在栈内存中保存，</li>
+<li>如果是引用类型，则会在堆内存中保存，变量中保存的实际上对象在堆内存中的地址。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210327-1616835132698" alt="图片描述"></p>
+<h2 id="JS的三类对象"><a href="#JS的三类对象" class="headerlink" title="JS的三类对象"></a>JS的三类对象</h2><p>JS中，可以将对象分为三类</p>
+<ul>
+<li><strong><code>内部对象</code></strong><ul>
+<li>本章后续主要讲解的就是内部对象，例如Date、Array、Math…</li>
+</ul>
+</li>
+<li><strong><code>宿主对象</code></strong><ul>
+<li>前一章节我们讲到的DOM相关的对象就是宿主对象</li>
+<li>后一章节我们要讲的BOM相关的对象也是宿主对象</li>
+</ul>
+</li>
+<li><strong><code>自定义对象</code></strong><ul>
+<li>前面我们创建出来的person对象就是自定义对象</li>
+</ul>
+</li>
+</ul>
+<h3 id="内部对象"><a href="#内部对象" class="headerlink" title="内部对象"></a>内部对象</h3><blockquote>
+<p><code>Number对象、String对象、Boolean对象</code> 3个基本类型的包装类<br>Date对象、Array对象、Function对象、Math对象<br>RegExp对象</p>
+</blockquote>
+<h4 id="Number对象"><a href="#Number对象" class="headerlink" title="Number对象"></a>Number对象</h4><p>Number是数值对应的引用数据类型（包装类），创建Number对象只需要在调用构造函数时传递一个数值：</p>
+<blockquote>
+<p>var num = new Number(20);</p>
+</blockquote>
+<p><code>使用数值时我们建议使用基本数值，而不建议使用包装类</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n1 = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">4</span>);		<span class="comment">//n1是引用类型</span></span><br><span class="line"><span class="keyword">var</span> n2 = <span class="number">4</span>;					<span class="comment">//n2是基本类型</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(n1));   <span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(n2));   <span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log(n1===n2);      <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<p>关于number相关的几个常用函数</p>
+<blockquote>
+<p>Number(值) ，该函数用于将数据强转数值型<br>parseInt(值)，该函数用于将数据转换成整型<br>parseFloat(值)，该函数用于将数据转换成浮点型<br>isNaN(值)，该函数用于检测某一个数据是否是数值</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">alert(<span class="built_in">isNaN</span>(<span class="string">&quot;A&quot;</span>));         <span class="comment">//true，对，它不是数字</span></span><br><span class="line">alert(<span class="built_in">isNaN</span>(<span class="number">123</span>));         <span class="comment">//false，错，它是数字</span></span><br><span class="line">alert(<span class="built_in">isNaN</span>(<span class="string">&quot;AB&quot;</span>));        <span class="comment">//true，对，它不是数字</span></span><br><span class="line">alert(<span class="built_in">isNaN</span>(<span class="string">&quot;123&quot;</span>));       <span class="comment">//false，错，它是数字</span></span><br><span class="line">alert(<span class="built_in">isNaN</span>(<span class="string">&quot;3.14&quot;</span>));      <span class="comment">//false，错，它是数字</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="String对象"><a href="#String对象" class="headerlink" title="String对象"></a>String对象</h4><p>String 类型是字符串的对象包装类型，可以像下面这样使用 String 构造函数来创建。</p>
+<blockquote>
+<p>var str = new String(“hello world”);</p>
+</blockquote>
+<p><code>可以使用length属性来获取字符串的字符长度</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n1 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> n2 = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(n1));    <span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(n2));    <span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(n1===n2);       <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>字符串的常用函数见 <a href="https://www.runoob.com/jsref/jsref-obj-string.html">String对象常用属性和方法</a></p>
+</blockquote>
+<h4 id="Boolean对象"><a href="#Boolean对象" class="headerlink" title="Boolean对象"></a>Boolean对象</h4><p>Boolean 类型是与布尔值对应的引用类型，可以采用这种方式创建：</p>
+<blockquote>
+<p>var b = new Boolean(true);</p>
+</blockquote>
+<p><code>我们最好永远不要使用Boolean包装类</code>。</p>
+<h4 id="Date对象"><a href="#Date对象" class="headerlink" title="Date对象"></a>Date对象</h4><blockquote>
+<p>Date类型用来表示一个时间。<br>Date采取的是时间戳的形式表示时间，所谓时间戳指的是从1970年1月1日0时0秒0分开始经过的毫秒数来计算时间。</p>
+</blockquote>
+<ul>
+<li>直接使用new Date()就可以创建一个Date对象。</li>
+<li>创造对象时不传参数默认创建当前时间。可以传递一个毫秒数用来创建具体的时间。</li>
+<li>也可以传递一个日期的字符串，来创建一个时间。<ul>
+<li>格式为：月份/日/年 时:分:秒 </li>
+<li>例如：06/13/2004 12:12:12</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> d1 = <span class="keyword">new</span> <span class="built_in">Date</span>();  <span class="comment">//不传参数，默认是当前时间</span></span><br><span class="line"><span class="built_in">console</span>.log(d1);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d2 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1616856089000</span>);  <span class="comment">//传入一个时间戳</span></span><br><span class="line"><span class="built_in">console</span>.log(d2);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d3 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&quot;2020/01/01 00:00:10&quot;</span>);  <span class="comment">//传入一个日期格式的字符串</span></span><br><span class="line"><span class="built_in">console</span>.log(d3);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d4 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&quot;2020-01-01 00:00:10&quot;</span>);  <span class="comment">//传入一个日期格式的字符串</span></span><br><span class="line"><span class="built_in">console</span>.log(d4);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">			</span><br><span class="line"><span class="comment">//取出年份</span></span><br><span class="line"><span class="keyword">var</span> year=obj.getFullYear();</span><br><span class="line">alert(<span class="string">&quot;年份是：&quot;</span>+year);</span><br><span class="line"><span class="comment">//取出月份(0 ~ 11)</span></span><br><span class="line"><span class="keyword">var</span> month=obj.getMonth()+<span class="number">1</span>;</span><br><span class="line">alert(<span class="string">&quot;月份是：&quot;</span>+month);</span><br><span class="line"><span class="comment">//取出日（1~31）</span></span><br><span class="line"><span class="keyword">var</span> day=obj.getDate();</span><br><span class="line">alert(<span class="string">&quot;日是：&quot;</span>+day);</span><br><span class="line"><span class="comment">//取出时(0 ~ 23)</span></span><br><span class="line"><span class="keyword">var</span> hour=obj.getHours();</span><br><span class="line">alert(<span class="string">&quot;时是：&quot;</span>+hour);</span><br><span class="line"><span class="comment">//取出分 (0 ~ 59)</span></span><br><span class="line"><span class="keyword">var</span> minute=obj.getMinutes();</span><br><span class="line">alert(<span class="string">&quot;分是：&quot;</span>+minute);</span><br><span class="line"><span class="comment">//取出秒(0 ~ 59)</span></span><br><span class="line"><span class="keyword">var</span> seconds=obj.getSeconds();</span><br><span class="line">alert(<span class="string">&quot;秒是：&quot;</span>+seconds);</span><br><span class="line">			</span><br><span class="line"><span class="comment">//转换成时间戳（ 距离1970 年 1 月 1 日0时0分0秒的毫秒数）</span></span><br><span class="line"><span class="keyword">var</span> timestamp=obj.getTime();</span><br><span class="line">alert(<span class="string">&quot;时间戳是：&quot;</span>+timestamp);</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h4><blockquote>
+<p>JS还为保存数学公式和信息提供了一个公共位置，即 Math 对象。</p>
+</blockquote>
+<p>与我们在 JavaScript 直接编写的计算功能相比，Math对象提供的计算功能执行起来要快得多。<br>Math对象中还提供了辅助完成这些计算的属性和方法。</p>
+<p>Math的常用方法</p>
+<ul>
+<li>最大最小值<ul>
+<li>Math.max()获取最大值</li>
+<li>Math.min()获取最小值</li>
+</ul>
+</li>
+<li>舍入<ul>
+<li>向上舍 Math.ceil()</li>
+<li>向下舍 Math.floor()</li>
+<li>四舍五入 Math.round()</li>
+</ul>
+</li>
+<li>随机数<ul>
+<li>Math.random()</li>
+<li>选取某个范围内的随机值：<blockquote>
+<p>值 = Math.floor(Math.random() * 可能值的总数 + 第一个可能的值)</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210328-1616943418594" alt="图片描述"></p>
+<h4 id="Function对象"><a href="#Function对象" class="headerlink" title="Function对象"></a>Function对象</h4><blockquote>
+<p>Function代表一个函数，函数也是一个对象</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; &#125;;   <span class="comment">//sum是一个function对象</span></span><br></pre></td></tr></table></figure>
+<p>由于函数是对象，因此函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定。</p>
+<h4 id="Array对象"><a href="#Array对象" class="headerlink" title="Array对象"></a>Array对象</h4><blockquote>
+<p>见第一章的“JS中的数组（Array）”</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>正则表达式</title>
+    <url>/2021/10/07/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<!-- GFM-TOC -->
+<span id="more"></span>
+
+<!-- GFM-TOC -->
+<h2 id="正则表达式概述"><a href="#正则表达式概述" class="headerlink" title="正则表达式概述"></a>正则表达式概述</h2><blockquote>
+<p>正则表达式（ Regular Expression简称<code>RegExp</code>）是用于匹配字符串中字符组合的模式<br>在JavaScript中，正则表达式也是内部对象。</p>
+</blockquote>
+<ul>
+<li>正则表通常被用来检索、替换那些符合某个模式（规则）的文本</li>
+<li>例如，验证表单：<ul>
+<li>用户名表单只能输入英文字母、数字或者下划线 </li>
+<li>昵称输入框中可以输入中文(匹配)。</li>
+<li>邮箱格式是否正确</li>
+<li>手机格式是否正确</li>
+</ul>
+</li>
+<li>此外，正则表达式还常用于过滤掉页面内容中的一些敏感词(替换)，或从字符串中获取我们想要的特定部分(提取)等 。</li>
+</ul>
+<blockquote>
+<p><code>其他语言也会使用正则表达式，本阶段我们主要是利用JavaScript正则表达式完成表单验证</code></p>
+</blockquote>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>在 JavaScript 中，可以通过两种方式创建一个正则表达式。</p>
+<ul>
+<li>通过调用 RegExp 对象的构造函数创建<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建一个正则表达式对象</span></span><br><span class="line"><span class="keyword">var</span> 变量名 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/正则表达式/</span>); </span><br></pre></td></tr></table></figure></li>
+<li>通过字面量创建<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建一个正则表达式对象</span></span><br><span class="line"><span class="keyword">var</span> 变量名 = <span class="regexp">/正则表达式/</span>; </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="测试正则表达式"><a href="#测试正则表达式" class="headerlink" title="测试正则表达式"></a>测试正则表达式</h4><blockquote>
+<p><code>RegExp对象.test( )</code><br>用于检测字符串是否符合该规则，该对象会返回 true 或 false，其参数是测试字符串。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> regExp1 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;正则表达式模板&quot;</span>);</span><br><span class="line">regExp1.test(要判断的字符串);	</span><br><span class="line"><span class="comment">//返回true就是“符合”</span></span><br><span class="line"><span class="comment">//返回false就是“不符合”</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//邮编验证	（只能是6位数字）518000</span></span><br><span class="line"><span class="keyword">var</span> regExp2 = <span class="regexp">/^\d&#123;6&#125;$/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(regExp2.test(<span class="string">&quot;1&quot;</span>));        <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp2.test(<span class="string">&quot;12&quot;</span>));       <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp2.test(<span class="string">&quot;123&quot;</span>));      <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp2.test(<span class="string">&quot;123456&quot;</span>));   <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://c.runoob.com/front-end/854">正则表达式测试工具</a></p>
+<h2 id="正则表达式的定义规则"><a href="#正则表达式的定义规则" class="headerlink" title="正则表达式的定义规则"></a>正则表达式的定义规则</h2><ul>
+<li>边界符</li>
+<li>方括号</li>
+<li>量词</li>
+<li>元字符</li>
+</ul>
+<h3 id="边界符"><a href="#边界符" class="headerlink" title="边界符"></a>边界符</h3><p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210330-1617114977623" alt="图片描述"></p>
+<h3 id="方括号"><a href="#方括号" class="headerlink" title="方括号"></a>方括号</h3><p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210330-1617119516084" alt="图片描述"></p>
+<h3 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h3><p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210330-1617119584354" alt="图片描述"></p>
+<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210330-1617119799832" alt="图片描述"></p>
+<h3 id="正则表达式参数"><a href="#正则表达式参数" class="headerlink" title="正则表达式参数"></a>正则表达式参数</h3><p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210330-1617119872012" alt="图片描述"></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查找字符串中的所有英文</span></span><br><span class="line"><span class="keyword">var</span> strArray=str.match(<span class="regexp">/[a-zA-Z]&#123;1,&#125;/g</span>);</span><br><span class="line"><span class="built_in">console</span>.log(strArray);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//查找字符串中的所有中文  </span></span><br><span class="line"><span class="comment">//  \u4E00-\u9FA5代表所有的中文范围</span></span><br><span class="line"><span class="keyword">var</span> strArray=str.match(<span class="regexp">/[\u4E00-\u9FA5]&#123;1,&#125;/g</span>);</span><br><span class="line"><span class="built_in">console</span>.log(strArray);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><ul>
+<li>邮编验证（只能是6位数字）<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> regExp1 = <span class="regexp">/^\d&#123;6&#125;$/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(regExp2.test(<span class="string">&quot;1&quot;</span>));        <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp2.test(<span class="string">&quot;12&quot;</span>));       <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp2.test(<span class="string">&quot;123&quot;</span>));      <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp2.test(<span class="string">&quot;123456&quot;</span>));   <span class="comment">//true</span></span><br></pre></td></tr></table></figure></li>
+<li>手机号码验证（1打头  3/4/5/7/8    后续的数字任意  总长度11）<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> regExp1 = <span class="regexp">/^\1(3|4|5|7|8)[0-9]&#123;9&#125;$/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;13812&quot;</span>));        <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;12012345678&quot;</span>));  <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;13812345678&quot;</span>));  <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;18912345678&quot;</span>));  <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;15112345678&quot;</span>));  <span class="comment">//true</span></span><br></pre></td></tr></table></figure></li>
+<li>邮箱验证（ 大小写字母、数字、下划线@大小写字母、数字[最少2个].[最少2个]  ）<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> regExp1 = <span class="regexp">/^\w&#123;1,&#125;@([0-9]|[a-z]|[A-Z])&#123;2,&#125;\.([0-9]|[a-z]|[A-Z])&#123;2,&#125;$/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;abc@126.com&quot;</span>));  <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;abc@126.c&quot;</span>));    <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;abc@126.cn&quot;</span>));   <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;a@126.com&quot;</span>));    <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;abc_126.cn&quot;</span>));   <span class="comment">//false</span></span><br></pre></td></tr></table></figure></li>
+<li>用户名验证（以字母开头，6~18位，只能包含字符、数字、下划线）<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> regExp1 = <span class="regexp">/^[a-zA-Z]([0-9]|[a-z]|[A-Z]|_)&#123;5,17&#125;$/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;abcde1_&quot;</span>));      <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;yock&quot;</span>));         <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;lanqiao&quot;</span>));      <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;lanqiao1@1_2&quot;</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(regExp1.test(<span class="string">&quot;lanqiao_3_ab&quot;</span>)); <span class="comment">//true</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>解析方式,JavaScript</tag>
+      </tags>
+  </entry>
 </search>
