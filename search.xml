@@ -5138,7 +5138,7 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="HTML的DOM模型"><a href="#HTML的DOM模型" class="headerlink" title="HTML的DOM模型"></a>HTML的DOM模型</h2><p><img src="https://doc.shiyanlou.com/courses/uid1321907-20210323-1616508553791" alt="图片描述"></p>
+<h2 id="HTML的DOM模型"><a href="#HTML的DOM模型" class="headerlink" title="HTML的DOM模型"></a>HTML的DOM模型</h2><p><img src="/source/assets/image/get.jpg" alt="图片描述"></p>
 <h2 id="节点（Node）"><a href="#节点（Node）" class="headerlink" title="节点（Node）"></a>节点（Node）</h2><p>节点，是构成我们网页的最基本的组成部分，网页中的每一个部分都可以称为是一个节点，<br>虽然都是节点，但是实际上他们的具体类型是不同的。</p>
 <h4 id="常用节点分为四类"><a href="#常用节点分为四类" class="headerlink" title="常用节点分为四类"></a>常用节点分为四类</h4><ul>
 <li><code>文档节点</code>：整个HTML文档</li>
